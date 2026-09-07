@@ -1,2 +1,4 @@
-streamlit==1.63.0
+streamlit==1.58.0
 streamlit-image-coordinates==0.4.0
+python-gettext
+validators==0.35.0
