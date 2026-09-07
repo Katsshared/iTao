@@ -1,0 +1,66 @@
+# German translations for PACKAGE package
+# German messages for PACKAGE.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-11 15:28+0200\n"
+"PO-Revision-Date: 2026-06-28 08:35+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Contact Form"
+msgstr "Kontaktformular"
+
+msgid "Email Form"
+msgstr "E-Mail-Formular"
+
+msgid "Subject"
+msgstr "Thema"
+
+msgid "Please enter subject of your mail"
+msgstr "Bitte geben Sie den Betreff Ihrer E-Mail ein"
+
+msgid "Full Name"
+msgstr "Vollständiger Name"
+
+msgid "Please enter your full name"
+msgstr "Bitte geben Sie Ihren vollständigen Namen ein"
+
+msgid "Email Address"
+msgstr "E-Mail-Adresse"
+
+msgid "Please enter your email address"
+msgstr "Bitte geben Sie Ihre E-Mail-Adresse ein"
+
+msgid "Email Text"
+msgstr "E-Mail-Text"
+
+msgid "Please enter your text here"
+msgstr "Please enter your text here"
+
+msgid "Attachment"
+msgstr "Anhang"
+
+msgid "Send"
+msgstr "Senden"
+
+msgid "Email sent successfully!"
+msgstr "E-Mail erfolgreich versendet!"
+
+msgid "I am Tao"
+msgstr "Ich bin Tao"
+
+
