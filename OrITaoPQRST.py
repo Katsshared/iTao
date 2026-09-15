@@ -6,18 +6,48 @@ import numpy as np
 import math
 
 import matplotlib.pyplot as plt
-#import matplotlib
-#print(matplotlib.get_backend())
-#matplotlib.use('Agg')
 
 import neurokit2 as nk
 import gettext
+
 
 localizator = gettext.translation('messages', localedir='locales', languages=[st.session_state.itaolang])
 localizator.install() 
 _ = localizator.gettext 
 
 FIGPNGFILENAME = "images/fig.png"
+
+en_pqrst = _('''                                                                                                                                                                                
+The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
+Instead of usual PQRST peaks, the vertical half-lemniscates are used.
+The height of half-lemniscate is equal to the height of usual PQRST peak.
+The values of the PQRST peaks and percentage of half-lemniscates squares are shown.
+The Q and S peaks can have negative values.
+It allows to see, that any change of one part of PQRST peak leads to the change of the whole PQRST complex.
+
+'''
+)
+
+de_pqrst = _('''                                                                                                                                                                                
+Die auf dem Paket „neurokit2“ basierende Anwendung veranschaulicht das Verhalten des PQRST-Komplexes als Ganzes. 
+Anstelle der üblichen PQRST-Zacken werden vertikale Halblemniskaten verwendet. 
+Die Höhe der Halblemniskate entspricht dabei der Höhe der jeweiligen PQRST-Zacke. 
+Angezeigt werden die Werte der PQRST-Zacken sowie die Flächeninhalte der Halblemniskaten (in Prozent). 
+Die Q- und S-Zacken können negative Werte aufweisen. 
+Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu einer Veränderung des gesamten PQRST-Komplexes führt.
+'''
+)
+
+ru_pqrst = _('''                                                                                                                                                                                
+Приложение, разработанное на основе пакета neurokit2, демонстрирует поведение комплекса PQRST в целом. 
+Вместо привычных пиков PQRST используются вертикальные полулемнискаты; высота полулемниската соответствует высоте стандартного пика PQRST. 
+Отображаются значения пиков PQRST и площади полулемнискатов (в процентах). 
+Пики Q и S могут принимать отрицательные значения. 
+Это позволяет наглядно увидеть, что изменение любой части пика PQRST влечет за собой изменение всего комплекса PQRST.
+'''
+)
+
+pqrst = {"en":en_pqrst, "de":de_pqrst, "ru":ru_pqrst, }
 
 st.title(_("PQRST"))
 
@@ -27,14 +57,8 @@ if "sigidx" not in st.session_state:
     st.session_state.sigidx = 0
 if "pauseidx" not in st.session_state:
     st.session_state.pauseidx = 0
-#if "itaofig" not in st.session_state:
-#    fig, ax = plt.subplots()
-#    fig, ax = plt.subplots(figsize=(8, 6))
-#    st.session_state.itaofig = fig
-#    st.session_state.itaoax = ax
 if "figrun" not in st.session_state:
     st.session_state.figrun = False
-
     
 def msg(msg):
     placeholder = st.empty()
@@ -152,8 +176,7 @@ def initComplex(pause, algorithm_name, data_name, samplerate):
     data = nk.data(dataset=data_name)
 #        data = nk.data(dataset="bio_resting_5min_100hz")
     ecg_signal = data["ECG"]
-    
-    
+        
     msg('Retrieving EKG peaks (neurokit2)')
 
     # Extract R-peaks locations nabian2018 elgendi2010 martinez2004 neurokit
@@ -173,9 +196,8 @@ def initComplex(pause, algorithm_name, data_name, samplerate):
     
     minLen = min(len(waves_peak['ECG_P_Peaks']), len(waves_peak['ECG_Q_Peaks'])-1, len(rpeaks['ECG_R_Peaks'])-1, len(waves_peak['ECG_S_Peaks'])-1, len(waves_peak['ECG_T_Peaks'])-1)
     if st.session_state.PQRSTidx in range(0, minLen):
-#    while st.session_state.PQRSTidx in range(0, minLen):
         if pause == 0:
-            print("PAUSE")
+#            print("PAUSE")
             return None, None, None, None, None, None
     return r0, r1, r2, r3, r4, r5
     
@@ -391,9 +413,9 @@ def main():
     
             
     def run_algorithm(): 
-        print("Selected algorithm: {}".format(alg_sel))
-        print("Data name {}".format(data_sel))
-        print("Sample rate {}".format(rate_sel))
+#        print("Selected algorithm: {}".format(alg_sel))
+#        print("Data name {}".format(data_sel))
+#        print("Sample rate {}".format(rate_sel))
                  
         msg('Running algorithm ' + alg_sel + ', Data ' + data_sel + ', Rate ' + str(rate_sel) + ' ' + sig_sel)
         draw_image(st.session_state.pauseidx, alg_sel, data_sel, rate_sel)
@@ -411,7 +433,8 @@ def main():
         st.session_state.pauseidx = 1
         run_algorithm()
       
-
+    st.write(pqrst[st.session_state.itaolang])
+        
 if __name__ == '__main__':
     main()        
             
