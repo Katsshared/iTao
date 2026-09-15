@@ -50,12 +50,14 @@ def on_tao():
 
 with st.sidebar:
     streamlit_image_coordinates(source="images/yinyang.png", on_click=on_tao)    
-                
+
+# ✉️∞️♾️☯☯︎☯️⏳               
 pg = st.navigation([
-    st.Page("OrITao.py", title=_("I am Tao"), icon="☯"),
+    st.Page("OrITao.py", title=_("I am Tao"), icon="☯️"),
     st.Page("OrITaoLibrary.py", title=_("Library"), icon="📖"),
     st.Page("OrITaoExperiment.py", title=_("Cavendish-Experiment"), icon="⚖️"),
-    st.Page("OrITaoContact.py", title=_("Contact"), icon="📫"),
+    st.Page("OrITaoPQRST.py", title=_("PQRST"), icon="♾️"),
+    st.Page("OrITaoContact.py", title=_("Contact"), icon="✉️"),
 ])
 
 pg.run()
