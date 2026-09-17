@@ -297,6 +297,82 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
 
 #        print('update idx=' + str(idxs))
     
+    idx = st.session_state.PQRSTidx          
+    
+    dblf = 25 # display blood factor
+    
+    clrP = 'orange'
+    clrQ = 'green'
+    clrR = 'pink'
+    clrS = 'blue'
+    clrT = 'brown'
+    
+    total_sum = np.abs(unfiltered_ecg[p_peaks[idx]]) + np.abs(unfiltered_ecg[q_peaks[idx]]) + np.abs(unfiltered_ecg[r_peaks[idx]]) + np.abs(unfiltered_ecg[s_peaks[idx]]) + np.abs(unfiltered_ecg[t_peaks[idx]])
+    
+    a = CassiniXY(unfiltered_ecg[p_peaks[idx]], 0)
+    a *= dblf
+    CassiniSteinerShort(a, a, clr=clrP, half=True, upper=True, show=False)
+    a = CassiniXY(unfiltered_ecg[q_peaks[idx]], 0)
+    a *= dblf
+    CassiniSteinerShort(a, a, clr=clrQ, half=True, upper=False, show=False)
+    a = CassiniXY(unfiltered_ecg[r_peaks[idx]], 0)
+    a *= dblf
+    CassiniSteinerShort(a, a, clr=clrR, half=True, upper=True, show=False)
+    a = CassiniXY(unfiltered_ecg[s_peaks[idx]], 0)
+    a *= dblf
+    CassiniSteinerShort(a, a, clr=clrS, half=True, upper=False, show=False)
+    a = CassiniXY(unfiltered_ecg[t_peaks[idx]], 0)
+    a *= dblf
+    CassiniSteinerShort(a, a, clr=clrT, half=True, upper=True, show=False)
+
+    clrPQRST = 'white'
+    clrBLOOD = 'red'
+    
+    ls='--'
+    bloodc =  (18 * total_sum) # total energy of blood circulation
+    if idx % 4 == 0:
+        ls='-'
+    
+    a = 18.5 
+#    a = CassiniXY(bloodc, 0)
+    b = np.sqrt(np.abs(bloodc**2 - a**2))
+    print(str(idx) + ' a='+ str(a)  + ' b='+ str(b))
+
+#    print(str(idx) + ' a='+ str(a)  + ' b='+ str(bloodc))
+    CassiniSteinerShort(a, b, clr=clrBLOOD, vertical=True, half=False, upper=True, linestyle=ls, show=False)
+    
+    fs = 8
+    x = 0.5
+    y = 0.5
+    
+    label = 'PQRST ' + str(total_sum)
+    plt.plot(x, y, clrPQRST, label=label)
+    label = 'BLOOD ' + str(bloodc)
+    plt.plot(x, y, clrBLOOD, label=label)
+    plt.legend(fontsize=str(fs), loc='lower right')
+                    
+    plt.title("BLOOD plot " + str(st.session_state.PQRSTidx))
+    
+#    plt.pause(1)
+    
+    st.session_state.PQRSTidx += 1
+               
+def update_BLOOD_2(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
+    plt.clf()
+            
+    zero_NaN(p_peaks)
+    zero_NaN(q_peaks)
+    zero_NaN(r_peaks)
+    zero_NaN(s_peaks)
+    zero_NaN(t_peaks)
+    
+    minLen = min(len(p_peaks), len(q_peaks)-1, len(r_peaks)-1, len(s_peaks)-1, len(t_peaks)-1)
+    if st.session_state.PQRSTidx >= minLen:
+#            print('update limit reached idx=' + str(idxs))
+        st.session_state.PQRSTidx = 0
+
+#        print('update idx=' + str(idxs))
+    
     clrS = 'blue'
     clrB = 'red'
 
@@ -398,11 +474,11 @@ def main():
                   'bio_resting_5min_100hz')
     with st.container(horizontal=True, horizontal_alignment="left"):
         pause_sel = st.radio(_(" "), ("Pause", "Run"), key = "itao_pause", horizontal=True, index=0)
-        rate_sel = st.select_slider(_("Sample rate"), options=[100, 200, 300, 400, 500,],) 
+        rate_sel = st.select_slider(_("Sample rate"), options=[100, 200, 300, 400, 500,],)
+        dist_sel = st.number_input(_("Insert interval"), min_value=10.0, max_value=50.0, step=0.1) 
     with st.container(horizontal=True, horizontal_alignment="left"):
         alg_sel = st.selectbox(label=_("Algorithm"), options=algorithms, key="itao_algs", index=10)    
         data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas", index=1)    
-
         sig_sel = st.radio(_("Plot"), ("PQRST", "BLOOD", "SIGNAL"), key = "itao_sig", horizontal=True, index=0)
     if sig_sel== "PQRST":
         st.session_state.sigidx = 0 
