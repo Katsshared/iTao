@@ -7,4 +7,4 @@ _ = localizator.gettext
 
 st.title(_("Cavendish-Experiment"))
 
-st.video("images/Cavendish.mp4")
+st.video("images/Cavendish_english_subtitles_burned.mp4")
