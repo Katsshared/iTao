@@ -1,3 +1,21 @@
+'''
+
+import pandas as pd
+import neurokit2 as nk
+
+# 1. CSV-Datei mit Pandas einlesen
+data = pd.read_csv("pfad_zu_ihrer_datei.csv")
+
+# 2. Auf ein spezifisches Signal zugreifen (z. B. ECG)
+ecg_signal = data["ECG"]  # Ersetzen Sie "ECG" durch Ihren Spaltennamen
+sampling_rate = 1000     # Passen Sie die Abtastrate (Hz) an Ihre Daten an
+
+# 3. Signal mit NeuroKit2 verarbeiten
+signals, info = nk.ecg_process(ecg_signal, sampling_rate=sampling_rate)
+
+def write_csv(data, filename, parts=None, **kwargs)
+
+'''
 
 import streamlit as st
 #from streamlit_image_coordinates import streamlit_image_coordinates
@@ -126,26 +144,33 @@ def CassiniSteinerShort(a, b, clr=None, vertical=True, half=False, upper=False, 
     if show == True:
         fig = plt.gcf()
         st.pyplot(fig)
-        plt.savefig(FIGPNGFILENAME, format="png")
+        saveFig()
         st.image(FIGPNGFILENAME)
 #        plt.show()
 
 
-def square_lemniscate(val):
-    S = val**2
+def square_lemniscate(a, half=True):
+    S = a**2
+    if half == True:
+        S /= 2
     return S
  
-def volume_lemniscate(val):
+def volume_lemniscate(a, half=True):
     sq = math.sqrt(2)
-    V = 2 * ((math.pi * val**3) / 4) * (sq * math.log(sq + 1) - 2/3)
+    V = 2 * ((math.pi * a**3) / 4) * (sq * math.log(sq + 1) - 2/3)
 #    V = 2 * ((math.pi * val**3) / 4) * math.floor(sq * math.log(sq + 1) - 2/3)
+    if half == True:
+        V /= 2
     return V
  
 def zero_NaN(peaks, val=0):
     for x in range(len(peaks)):
         if math.isnan(peaks[x]) == True:
             peaks[x] = val
-        
+
+def saveFig(): 
+    plt.savefig(FIGPNGFILENAME, format="png")
+    
 #    https://discuss.streamlit.io/t/continuously-updating-image-content/86954/2
 @st.fragment(run_every=1)
 def draw_image(pause, algorithm_name, data_name, samplerate):
@@ -165,7 +190,7 @@ def draw_image(pause, algorithm_name, data_name, samplerate):
     if st.session_state.figrun == True:
         updateComplex(st.session_state.itaor0, st.session_state.itaor1, st.session_state.itaor2, 
                       st.session_state.itaor3, st.session_state.itaor4, st.session_state.itaor5)
-        plt.savefig(FIGPNGFILENAME, format="png")      
+        saveFig()      
         
 
 def initComplex(pause, algorithm_name, data_name, samplerate):
@@ -280,7 +305,22 @@ def update_PQRST(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     
     st.session_state.PQRSTidx += 1
 
-               
+def calcB(x, a):
+    b = np.sqrt(np.abs(x**2 - a**2))
+    return b
+
+def plotCassini(peak, bloodc, clr, upper=True):
+#    f = 18.5*np.sqrt(2)/bloodc
+    dblf = 25 # display blood factor
+    
+    a = CassiniXY(peak, 0)
+#    b = calcB(peak*f, a)
+    b = a # calcB(peak*f, a)
+
+    b *= dblf
+    a *= dblf
+    CassiniSteinerShort(a, b, clr=clr, half=True, upper=upper, show=False)
+                   
 def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     plt.clf()
             
@@ -308,37 +348,24 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     clrT = 'brown'
     
     total_sum = np.abs(unfiltered_ecg[p_peaks[idx]]) + np.abs(unfiltered_ecg[q_peaks[idx]]) + np.abs(unfiltered_ecg[r_peaks[idx]]) + np.abs(unfiltered_ecg[s_peaks[idx]]) + np.abs(unfiltered_ecg[t_peaks[idx]])
-    
-    a = CassiniXY(unfiltered_ecg[p_peaks[idx]], 0)
-    a *= dblf
-    CassiniSteinerShort(a, a, clr=clrP, half=True, upper=True, show=False)
-    a = CassiniXY(unfiltered_ecg[q_peaks[idx]], 0)
-    a *= dblf
-    CassiniSteinerShort(a, a, clr=clrQ, half=True, upper=False, show=False)
-    a = CassiniXY(unfiltered_ecg[r_peaks[idx]], 0)
-    a *= dblf
-    CassiniSteinerShort(a, a, clr=clrR, half=True, upper=True, show=False)
-    a = CassiniXY(unfiltered_ecg[s_peaks[idx]], 0)
-    a *= dblf
-    CassiniSteinerShort(a, a, clr=clrS, half=True, upper=False, show=False)
-    a = CassiniXY(unfiltered_ecg[t_peaks[idx]], 0)
-    a *= dblf
-    CassiniSteinerShort(a, a, clr=clrT, half=True, upper=True, show=False)
+    bloodc =  (18 * total_sum) # total energy of blood circulation
+
+    plotCassini(unfiltered_ecg[p_peaks[idx]], bloodc, clrP)
+    plotCassini(unfiltered_ecg[q_peaks[idx]], bloodc, clrQ, False)
+    plotCassini(unfiltered_ecg[r_peaks[idx]], bloodc, clrR)
+    plotCassini(unfiltered_ecg[s_peaks[idx]], bloodc, clrS, False)
+    plotCassini(unfiltered_ecg[t_peaks[idx]], bloodc, clrT)
 
     clrPQRST = 'white'
     clrBLOOD = 'red'
     
     ls='--'
-    bloodc =  (18 * total_sum) # total energy of blood circulation
     if idx % 4 == 0:
         ls='-'
     
-    a = 18.5 
-#    a = CassiniXY(bloodc, 0)
-    b = np.sqrt(np.abs(bloodc**2 - a**2))
-    print(str(idx) + ' a='+ str(a)  + ' b='+ str(b))
-
-#    print(str(idx) + ' a='+ str(a)  + ' b='+ str(bloodc))
+    a = st.session_state.dist / 2
+    b = calcB(bloodc, a)
+#    print(str(idx) + ' a='+ str(a)  + ' b='+ str(b))
     CassiniSteinerShort(a, b, clr=clrBLOOD, vertical=True, half=False, upper=True, linestyle=ls, show=False)
     
     fs = 8
@@ -460,8 +487,10 @@ def update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
 #    plt.pause(1)
     
     st.session_state.PQRSTidx += 1
-        
-
+    
+# яремная ямка (лат. fossa jugularis) или надгрудинная ямка
+# suprasternal notch
+# Jugulargrube
 def main(): 
     algorithms = ('christov2004', 'elgendi2010', 'engzeemod2012', 
                   'gamboa2008', 'hamilton2002', 'kalidas2017', 
@@ -475,7 +504,7 @@ def main():
     with st.container(horizontal=True, horizontal_alignment="left"):
         pause_sel = st.radio(_(" "), ("Pause", "Run"), key = "itao_pause", horizontal=True, index=0)
         rate_sel = st.select_slider(_("Sample rate"), options=[100, 200, 300, 400, 500,],)
-        dist_sel = st.number_input(_("Insert interval"), min_value=10.0, max_value=50.0, step=0.1) 
+        st.session_state.dist = st.number_input(_("Distance between navel and fossa jugularis"), value=37.0, placeholder=_("Distance between navel and fossa jugularis"), min_value=5.0, max_value=100.0, step=0.1) 
     with st.container(horizontal=True, horizontal_alignment="left"):
         alg_sel = st.selectbox(label=_("Algorithm"), options=algorithms, key="itao_algs", index=10)    
         data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas", index=1)    

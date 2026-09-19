@@ -45,6 +45,8 @@ ru_books = {
 
 books = {"en":en_books, "de":de_books, "ru":ru_books, }
 
+st.set_page_config(layout="centered")
+
     
 def makeData(label, fname, key):
 #    print("MAKE DATA", label, fname, key)
