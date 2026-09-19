@@ -35,33 +35,78 @@ _ = localizator.gettext
 
 FIGPNGFILENAME = "images/fig.png"
 
-en_pqrst = _('''                                                                                                                                                                                
+en_pqrst = _('''
 The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
+It has the following options:
+
+PQRST
+                                                                                                                                                                                
 Instead of usual PQRST peaks, the vertical half-lemniscates are used.
 The height of half-lemniscate is equal to the height of usual PQRST peak.
 The values of the PQRST peaks and percentage of peaks are shown.
 The Q and S peaks can have negative values.
 It allows to see, that any change of one part of PQRST peak leads to the change of the whole PQRST complex.
 
+BLOOD
+                                                                                                                                                                                
+The energy of blood makes the heart beat. It is 18 times more than the total energy of one beat. The energy of blood is shown as Cassini oval.
+If the the form of curve has a form of two separated ovals, this could mean an illness.
+The distance between navel and fossa jugularis is neсesary for calculation of oval.
+
+SIGNAL
+
+The usual ecg signals are shown.
+
 '''
 )
 
-de_pqrst = _('''                                                                                                                                                                                
-Die auf dem Paket „neurokit2“ basierende Anwendung veranschaulicht das Verhalten des PQRST-Komplexes als Ganzes. 
+de_pqrst = _('''
+Die auf dem Paket „neurokit2“ basierende Anwendung veranschaulicht das Verhalten des PQRST-Komplexes als Ganzes.
+Die bietet die folgenden Optionen:
+
+PQRST
+                                                                                                                                                                                                                                                                                                                                                                 
 Anstelle der üblichen PQRST-Zacken werden vertikale Halblemniskaten verwendet. 
 Die Höhe der Halblemniskate entspricht dabei der Höhe der jeweiligen PQRST-Zacke. 
 Angezeigt werden die Werte der PQRST-Zacken sowie Prozentsatz der Zacken. 
 Die Q- und S-Zacken können negative Werte aufweisen. 
 Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu einer Veränderung des gesamten PQRST-Komplexes führt.
+
+BLOOD
+
+Die Energie des Blutes treibt den Herzschlag an. Sie ist 18-mal so groß wie die Gesamtenergie eines einzelnen Herzschlags. Die Energie des Blutes wird als Cassini-Oval dargestellt.
+Weist die Kurve die Form zweier getrennter Ovale auf, kann dies auf eine Erkrankung hinweisen.
+Der Abstand zwischen Bauchnabel und Fossa jugularis ist für die Berechnung des Ovals erforderlich.
+
+SIGNAL
+
+Die üblichen EKG-Signale werden angezeigt.
+
 '''
 )
 
-ru_pqrst = _('''                                                                                                                                                                                
-Приложение, разработанное на основе пакета neurokit2, демонстрирует поведение комплекса PQRST в целом. 
+ru_pqrst = _('''
+Приложение, разработанное на основе пакета neurokit2, демонстрирует поведение комплекса PQRST в целом.
+Оно имеет следующие опции:
+
+PQRST
+                                                                                                                                                                                                                                                                                                                                                                 
 Вместо привычных пиков PQRST используются вертикальные полулемнискаты; высота полулемниската соответствует высоте стандартного пика PQRST. 
-Отображаются значения пиков PQRST и пиков в процентах. 
+Отображаются значения пиков PQRST и проценты пиков. 
 Пики Q и S могут принимать отрицательные значения. 
 Это позволяет наглядно увидеть, что изменение любой части пика PQRST влечет за собой изменение всего комплекса PQRST.
+
+
+BLOOD
+
+Энергия крови обеспечивает биение сердца. Она в 18 раз превышает суммарную энергию одного сердечного сокращения. Энергия крови визуализируется в виде овала Кассини.
+Если кривая принимает форму двух раздельных овалов, это может указывать на заболевание.
+Расстояние между пупком и яремной выемкой необходимо для расчета овала.
+
+СИГНАЛ
+
+Представлены стандартные сигналы ЭКГ.
+
 '''
 )
 
@@ -179,14 +224,17 @@ def draw_image(pause, algorithm_name, data_name, samplerate):
 
     st.image(FIGPNGFILENAME)
     if st.session_state.figrun == False:
-        r0, r1, r2, r3, r4, r5 = initComplex(pause, algorithm_name, data_name, samplerate)
-        st.session_state.figrun = True
-        st.session_state.itaor0 = r0
-        st.session_state.itaor1 = r1
-        st.session_state.itaor2 = r2
-        st.session_state.itaor3 = r3
-        st.session_state.itaor4 = r4
-        st.session_state.itaor5 = r5
+        try:                
+            r0, r1, r2, r3, r4, r5 = initComplex(pause, algorithm_name, data_name, samplerate)
+            st.session_state.figrun = True
+            st.session_state.itaor0 = r0
+            st.session_state.itaor1 = r1
+            st.session_state.itaor2 = r2
+            st.session_state.itaor3 = r3
+            st.session_state.itaor4 = r4
+            st.session_state.itaor5 = r5
+        except Exception as e:
+            st.error(f"initComplex Failed:\n {e}")
     if st.session_state.figrun == True:
         updateComplex(st.session_state.itaor0, st.session_state.itaor1, st.session_state.itaor2, 
                       st.session_state.itaor3, st.session_state.itaor4, st.session_state.itaor5)
