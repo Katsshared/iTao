@@ -39,7 +39,7 @@ en_pqrst = _('''
 The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
 Instead of usual PQRST peaks, the vertical half-lemniscates are used.
 The height of half-lemniscate is equal to the height of usual PQRST peak.
-The values of the PQRST peaks and percentage of half-lemniscates squares are shown.
+The values of the PQRST peaks and percentage of peaks are shown.
 The Q and S peaks can have negative values.
 It allows to see, that any change of one part of PQRST peak leads to the change of the whole PQRST complex.
 
@@ -50,7 +50,7 @@ de_pqrst = _('''
 Die auf dem Paket „neurokit2“ basierende Anwendung veranschaulicht das Verhalten des PQRST-Komplexes als Ganzes. 
 Anstelle der üblichen PQRST-Zacken werden vertikale Halblemniskaten verwendet. 
 Die Höhe der Halblemniskate entspricht dabei der Höhe der jeweiligen PQRST-Zacke. 
-Angezeigt werden die Werte der PQRST-Zacken sowie die Flächeninhalte der Halblemniskaten (in Prozent). 
+Angezeigt werden die Werte der PQRST-Zacken sowie Prozentsatz der Zacken. 
 Die Q- und S-Zacken können negative Werte aufweisen. 
 Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu einer Veränderung des gesamten PQRST-Komplexes führt.
 '''
@@ -59,7 +59,7 @@ Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu ein
 ru_pqrst = _('''                                                                                                                                                                                
 Приложение, разработанное на основе пакета neurokit2, демонстрирует поведение комплекса PQRST в целом. 
 Вместо привычных пиков PQRST используются вертикальные полулемнискаты; высота полулемниската соответствует высоте стандартного пика PQRST. 
-Отображаются значения пиков PQRST и площади полулемнискатов (в процентах). 
+Отображаются значения пиков PQRST и пиков в процентах. 
 Пики Q и S могут принимать отрицательные значения. 
 Это позволяет наглядно увидеть, что изменение любой части пика PQRST влечет за собой изменение всего комплекса PQRST.
 '''
