@@ -10,7 +10,7 @@ _ = localizator.gettext
 
 
 en_itao = _('''
-The Tao that can be told is not the eternal Tao. (Tao Te Ching 道德經 1)
+Tao that can be told is not the eternal Tao. (Tao Te Ching 道德經 1)
 
 "iTao" is an abbreviation of the expression "I am Tao 我是道". In ancient times, human beings possessed a dull, instinctive perception of what was called the Tao. Ancient sages perceived Tao as All, as the goal and the path to that goal. Instead of direct perception, modern man employs concepts regarding the Tao that allow to make three assertions. These can be considered as the axioms of the spiritual science or the science of Tao. Just as the science of geometry is built upon Euclid’s axioms, so too can a science of Tao be constructed upon these assertions.
 
