@@ -60,7 +60,7 @@ It allows to see, that any change of one part of PQRST peak leads to the change 
 
 BLOOD
                                                                                                                                                                                 
-The energy of blood makes the heart beat. It is 18 times more than the total energy of one beat. The energy of blood is shown as Cassini oval.
+The energy of blood makes the heart beat. It is several times more than the total energy of one beat. The energy of blood is shown as Cassini oval.
 If the the form of curve has a form of two separated ovals, this could mean an illness.
 The distance between navel and fossa jugularis is neсesary for calculation of oval.
 
@@ -85,7 +85,7 @@ Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu ein
 
 BLOOD
 
-Die Energie des Blutes treibt den Herzschlag an. Sie ist 18-mal so groß wie die Gesamtenergie eines einzelnen Herzschlags. Die Energie des Blutes wird als Cassini-Oval dargestellt.
+Die Energie des Blutes treibt den Herzschlag an. Sie ist ein Vielfaches der Gesamtenergie eines einzelnen Herzschlags. Die Energie des Blutes wird als Cassini-Oval dargestellt.
 Weist die Kurve die Form zweier getrennter Ovale auf, kann dies auf eine Erkrankung hinweisen.
 Der Abstand zwischen Bauchnabel und Fossa jugularis ist für die Berechnung des Ovals erforderlich.
 
@@ -110,7 +110,7 @@ PQRST
 
 BLOOD
 
-Энергия крови обеспечивает биение сердца. Она в 18 раз превышает суммарную энергию одного сердечного сокращения. Энергия крови визуализируется в виде овала Кассини.
+Энергия крови обеспечивает биение сердца. Она в несколько раз превышает суммарную энергию одного сердечного сокращения. Энергия крови визуализируется в виде овала Кассини.
 Если кривая принимает форму двух раздельных овалов, это может указывать на заболевание.
 Расстояние между пупком и яремной ямкой необходимо для расчета овала.
 
