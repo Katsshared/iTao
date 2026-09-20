@@ -8,28 +8,28 @@ localizator.install()
 _ = localizator.gettext 
 
 en_invol = _('''                                                                                                                                                                                
-42 The Tao begot One.
+The Tao begot One.
 One begot Two.
 Two begot Three.
-And Three begot the ten thousand things.
+And Three begot the ten thousand things. (Tao Te Ching 道德經 42)
 
 '''
 )
 
 de_invol = _('''                                                                                                                                                                                
-42 Das Tao brachte das Eine hervor.
+Das Tao brachte das Eine hervor.
 Das Eine brachte das Zwei hervor.
 Das Zwei brachte das Drei hervor.
-Und das Drei brachte die zehntausend Dinge hervor.
+Und das Drei brachte die zehntausend Dinge hervor. (Tao Te Ching 道德經 42)
 
 '''
 )
 
 ru_invol = _('''                                                                                                                                                                                
-42 Тао породило Одно.
+Тао породило Одно.
 Одно породило Два.
 Два породило Три.
-А Три породило десять тысяч вещей.
+А Три породило десять тысяч вещей. (Дао Дэ Цзин 道德經 42)
 
 '''
 )

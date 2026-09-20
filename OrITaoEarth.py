@@ -21,13 +21,13 @@ It is not possible to explain the interaction of two pairs of masses in Cavendis
 
 It is well known that the Newton’s law of gravitation was derived from the Kepler’s law for the planets of the Solar system. Such derivation and calculation is possible because the Kepler’s law contains the Newton’s law without masses. The Kepler’s law states that the squares of the orbital periods of the planets are proportional to the cubes of the semi-major axles of their orbits (1). 
 
-(1)     t1² : t2² = r1³ : r2³
+(1)     t₁² : t₂² = r₁³ : r₂³
 
 It is possible to rewrite (1) as (2).
 
-t1² / r1 : t2² / r2 = r1² : r2²
+t₁² / r₁ : t₂² / r₂ = r₁² : r₂²
 
-(2)     1 / r1² : 1 / r2² = r1 / t1² : r2 / t2²
+(2)     1 / r₁² : 1 / r₂² = r₁ / t₁² : r₂ / t₂²
 
 Taking for simplicity the accelerations for circular motion of planets one gets (3).
 
@@ -37,17 +37,17 @@ v = 2πr / t
 
 a = 4π²r / t²
 
-(3)     r1 / t1² : r2 / t2² = a1 : a2
+(3)     r₁ / t₁² : r₂ / t₂² = a₁ : a₂
 
 Combining (2) and (3) one gets that accelerations are inversely proportional to the square of distances (4).
 
-(4)     1 / r1² : 1 / r2² = a1 : a2 
+(4)     1 / r₁² : 1 / r₂² = a₁ : a₂
 
 In such a way the Kepler’s law (2) is actually the Newton’s law without masses: accelerations are inversely proportional to the square of distances (4). Using the second Newton’s law one gets the Newton’s law with masses (5). The forces involved in motion of planets are proportional to the masses of planets and inversely proportional to the square of the distances.
 
 f = m a
 
-(5)     m1 / r1² : m2 / r2² = f1 : f2 
+(5)     m₁ / r₁² : m₂ / r₂² = f₁ : f₂
 
 The expression (5) does not mean that any masses attract each other. It means that the planets are moving in compliance with the Kepler’s law (2). If an object falls on a planet it moves in compliance with the motions of the planets, but it does not mean that an object attracts a planet. There is neither such evidence nor evidence that all objects on some planet attract each other. The planets of the Solar system do not exist by themselves they exist only together in combination with other planets of the Solar system. As well as the combinations of two pairs of masses in Cavendish experiment can cause the movement of masses, likewise the combinations of the planets of the Solar system can cause the motion of the planets. 
 
@@ -69,13 +69,13 @@ Es ist nicht möglich, die Wechselwirkung zweier Massenpaare im Cavendish-Experi
 
 Es ist allgemein bekannt, dass das Newtonsche Gravitationsgesetz aus den Keplerschen Gesetzen für die Planeten des Sonnensystems abgeleitet wurde. Eine solche Ableitung und Berechnung ist möglich, weil das Keplersche Gesetz das Newtonsche Gesetz ohne Berücksichtigung der Massen enthält. Das Keplersche Gesetz besagt, dass sich die Quadrate der Umlaufzeiten der Planeten wie die Kuben der großen Halbachsen ihrer Umlaufbahnen verhalten (1).
 
-(1)     t1² : t2² = r1³ : r2³
+(1)     t₁² : t₂² = r₁³ : r₂³
 
 Es ist möglich, (1) in (2) umzuformen.
 
-t1² / r1 : t2² / r2 = r1² : r2²
+t₁² / r₁ : t₂² / r₂ = r₁² : r₂²
 
-(2)     1 / r1² : 1 / r2² = r1 / t1² : r2 / t2²
+(2)     1 / r₁² : 1 / r₂² = r₁ / t₁² : r₂ / t₂²
 
 Betrachtet man der Einfachheit halber die Beschleunigungen bei der Kreisbewegung der Planeten, so erhält man (3).
 
@@ -85,17 +85,17 @@ v = 2πr / t
 
 a = 4π²r / t²
 
-(3)     r1 / t1² : r2 / t2² = a1 : a2
+(3)     r₁ / t₁² : r₂ / t₂² = a₁ : a₂
 
 Durch Kombination von (2) und (3) ergibt sich, dass die Beschleunigungen umgekehrt proportional zum Quadrat der Abstände sind (4).
 
-(4)     1 / r1² : 1 / r2² = a1 : a2
+(4)     1 / r₁² : 1 / r₂² = a₁ : a₂
 
 Auf diese Weise stellt das Keplersche Gesetz (2) eigentlich das Newtonsche Gesetz ohne Massen dar: Die Beschleunigungen sind umgekehrt proportional zum Quadrat der Abstände (4). Unter Anwendung des zweiten Newtonschen Gesetzes gelangt man zu dem Newtonschen Gesetz unter Berücksichtigung der Massen (5). Die bei der Planetenbewegung wirkenden Kräfte sind proportional zu den Massen der Planeten und umgekehrt proportional zum Quadrat der Abstände.
 
 f = m a
 
-(5)     m1 / r1² : m2 / r2² = f1 : f2
+(5)     m₁ / r₁² : m₂ / r₂² = f₁ : f₂
 
 Der Ausdruck (5) bedeutet nicht, dass sich beliebige Massen gegenseitig anziehen. Er besagt vielmehr, dass sich die Planeten im Einklang mit dem Keplerschen Gesetz (2) bewegen. Fällt ein Objekt auf einen Planeten, so bewegt es sich zwar in Übereinstimmung mit der Planetenbewegung, doch bedeutet dies nicht, dass das Objekt den Planeten anzieht. Es gibt hierfür ebenso wenig einen Beleg wie für die Annahme, dass sich alle Objekte auf einem Planeten gegenseitig anziehen. Die Planeten des Sonnensystems existieren nicht isoliert, sondern nur im Verbund mit den anderen Planeten des Sonnensystems. So wie die Kombinationen zweier Massenpaare im Cavendish-Experiment eine Bewegung der Massen hervorrufen können, so können auch die Kombinationen der Planeten des Sonnensystems deren Bewegung bewirken.
 
@@ -118,13 +118,13 @@ ru_earth = _('''
 
 Хорошо известно, что закон всемирного тяготения Ньютона был выведен на основе законов Кеплера для планет Солнечной системы. Такой вывод и расчет возможны, поскольку закон Кеплера фактически содержит в себе закон Ньютона, но без учета масс. Согласно закону Кеплера, квадраты периодов обращения планет пропорциональны кубам больших полуосей их орбит (1).
 
-(1)     t1² : t2² = r1³ : r2³
+(1)     t₁² : t₂² = r₁³ : r₂³
 
 Соотношение (1) можно переписать в виде (2).
 
-t1² / r1 : t2² / r2 = r1² : r2²
+t₁² / r₁ : t₂² / r₂ = r₁² : r₂²
 
-(2)     1 / r1² : 1 / r2² = r1 / t1² : r2 / t2²
+(2)     1 / r₁² : 1 / r₂² = r₁ / t₁² : r₂ / t₂²
 
 Если для простоты рассмотреть ускорения при круговом движении планет, получим (3).
 
@@ -134,17 +134,17 @@ v = 2πr / t
 
 a = 4π²r / t²
 
-(3)     r1 / t1² : r2 / t2² = a1 : a2
+(3)     r₁ / t₁² : r₂ / t₂² = a₁ : a₂
 
 Объединив (2) и (3), приходим к выводу, что ускорения обратно пропорциональны квадратам расстояний (4).
 
-(4)     1 / r1² : 1 / r2² = a1 : a2
+(4)     1 / r₁² : 1 / r₂² = a₁ : a₂
 
 Таким образом, закон Кеплера (2) — это, по сути, закон Ньютона без учета масс: ускорения обратно пропорциональны квадратам расстояний (4). Используя второй закон Ньютона, можно получить закон Ньютона, учитывающий массы (5). Силы, определяющие движение планет, пропорциональны массам планет и обратно пропорциональны квадратам расстояний.
 
 f = m a
 
-(5)     m1 / r1² : m2 / r2² = f1 : f2
+(5)     m₁ / r₁² : m₂ / r₂² = f₁ : f₂
 
 Выражение (5) не означает, что любые массы притягиваются друг к другу. Оно означает, что планеты движутся в соответствии с законом Кеплера (2). Если какой-либо объект падает на планету, он движется в соответствии с закономерностями движения планет, однако это не означает, что сам объект притягивает планету. Не существует ни таких доказательств, ни свидетельств того, что все объекты на планете притягиваются друг к другу. Планеты Солнечной системы не существуют обособленно; они существуют лишь во взаимосвязи с другими планетами Солнечной системы. Подобно тому как взаимодействие двух пар масс в опыте Кавендиша может вызывать движение этих масс, так и взаимодействие планет Солнечной системы может обусловливать движение самих планет.
 

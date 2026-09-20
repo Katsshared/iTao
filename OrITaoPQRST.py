@@ -15,6 +15,17 @@ signals, info = nk.ecg_process(ecg_signal, sampling_rate=sampling_rate)
 
 def write_csv(data, filename, parts=None, **kwargs)
 
+
+import neurokit2 as nk
+
+# 1. Beispiel-Daten laden und verarbeiten
+data = nk.data("bio_eventrelated_100hz")
+df, info = nk.bio_process(ecg=data["ECG"], sampling_rate=100)
+
+# 2. Als CSV speichern (index=False verhindert eine extra Spalte für Zeilennummern)
+df.to_csv("meine_physio_daten.csv", index=False)
+
+
 '''
 
 import streamlit as st
@@ -267,7 +278,8 @@ def initComplex(pause, algorithm_name, data_name, samplerate):
     r4 = waves_peak['ECG_S_Peaks']
     r5 = waves_peak['ECG_T_Peaks']               
     
-    minLen = min(len(waves_peak['ECG_P_Peaks']), len(waves_peak['ECG_Q_Peaks'])-1, len(rpeaks['ECG_R_Peaks'])-1, len(waves_peak['ECG_S_Peaks'])-1, len(waves_peak['ECG_T_Peaks'])-1)
+    minLen = min(len(r1), len(r2)-1, len(r3)-1, len(r4)-1, len(r5)-1)
+#    minLen = min(len(waves_peak['ECG_P_Peaks']), len(waves_peak['ECG_Q_Peaks'])-1, len(rpeaks['ECG_R_Peaks'])-1, len(waves_peak['ECG_S_Peaks'])-1, len(waves_peak['ECG_T_Peaks'])-1)
     if st.session_state.PQRSTidx in range(0, minLen):
         if pause == 0:
 #            print("PAUSE")

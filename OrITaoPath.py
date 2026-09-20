@@ -14,19 +14,19 @@ localizator.install()
 _ = localizator.gettext 
 
 en_path = _('''                                                                                                                                                                                
-53 Great Tao is smooth and plain, yet people prefer the devious bypaths.
+Great Tao (Path) is smooth and plain, yet people prefer the devious bypaths. (Tao Te Ching 道德經 53) 
 
 '''
 )
 
 de_path = _('''                                                                                                                                                                                
-53 Das große Tao ist eben und schlicht, doch die Menschen bevorzugen die verschlungenen Seitenpfade.
+Das große Tao (Pfad) ist eben und schlicht, doch die Menschen bevorzugen die verschlungenen Seitenpfade. (Tao Te Ching 道德經 53)
 
 '''
 )
 
 ru_path = _('''                                                                                                                                                                                
-53 Великий Дао ровен и прост, но люди предпочитают окольные тропы.
+ Великий Дао (Путь) ровен и прост, но люди предпочитают окольные пути. (Дао Дэ Цзин 道德經 53)
 
 '''
 )
@@ -34,8 +34,6 @@ ru_path = _('''
 path = {"en":en_path, "de":de_path, "ru":ru_path, }
 
 st.title(_("Path"))
-
-
 
 st.write(path[st.session_state.itaolang])
 

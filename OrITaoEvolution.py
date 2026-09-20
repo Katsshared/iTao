@@ -8,19 +8,19 @@ localizator.install()
 _ = localizator.gettext 
 
 en_evol = _('''                                                                                                                                                                                
-42 The ten thousand things carry yin and embrace yang.
+The ten thousand things carry yin and embrace yang. (Tao Te Ching 道德經 42)
 
 '''
 )
 
 de_evol = _('''                                                                                                                                                                                
-42 Die zehntausend Dinge tragen das Yin und umfangen das Yang.
+Die zehntausend Dinge tragen das Yin und umfangen das Yang. (Tao Te Ching 道德經 42)
 
 '''
 )
 
 ru_evol = _('''                                                                                                                                                                                
-42 Десять тысяч вещей несут в себе инь и объемлют ян.
+Десять тысяч вещей несут в себе инь и объемлют ян. (Дао Дэ Цзин 道德經 42)
 
 '''
 )
