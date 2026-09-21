@@ -7,14 +7,12 @@ localizator = gettext.translation('messages', localedir='locales', languages=[st
 localizator.install() 
 _ = localizator.gettext 
 
-
-
 en_itao = _('''
 Tao that can be told is not the eternal Tao. (Tao Te Ching 道德經 1)
 
 "iTao" is an abbreviation of the expression "I am Tao 我是道". In ancient times, human beings possessed a dull, instinctive perception of what was called the Tao. Ancient sages perceived Tao as All, as the goal and the path to that goal. Instead of direct perception, modern man employs concepts regarding the Tao that allow to make three assertions. These can be considered as the axioms of the spiritual science or the science of Tao. Just as the science of geometry is built upon Euclid’s axioms, so too can a science of Tao be constructed upon these assertions.
 
-Since "Tao is All" it can only be defined in terms of itself. Therefore, Tao also signifies "I am the 'I Am'". As there cannot be two "All", the Tao is referred to as the "One without the Other". Tao must possess consciousness; otherwise, man - as a part of All - likewise lack consciousness. Names such as God, Brahman, Allah, absolute Spirit and the Absolute are also designations for Tao. Tao cannot be defined, for All is infinite and encompasses all concepts inside itself. One can only assert that Tao is conscious and infinite. In other words, this means that the absolute, infinite God is self-conscious, and that whatever a human being is - or is not - capable of realizing exists inside the consciousness of God, who is All.
+Since "Tao is All" it can only be defined in terms of itself. Therefore, Tao also signifies "I am the 'I Am'". As there cannot be two "All", the Tao is referred to as the "One without the Other". Tao must possess consciousness; otherwise, man - as a part of All - likewise lack consciousness. Names such as God, Brahma, Allah, absolute Spirit and the Absolute are also designations for Tao. Tao cannot be defined, for All is infinite and encompasses all concepts inside itself. One can only assert that Tao is conscious and infinite. In other words, this means that the absolute, infinite God is self-conscious, and that whatever a human being is - or is not - capable of realizing exists inside the consciousness of God, who is All.
 
 One must distinguish the concepts of infinity from the conscious Infinity itself, which is All and encompasses all concepts. For example, the concept of the infinity of natural numbers is based on the assumption that the number 1 can be added to any natural number N. Yet this is not a definition of Infinity, but merely a finite concept presupposing the existence of any number N - an assumption that is incorrect. Something finite cannot define the Infinite, which is All. 
 
