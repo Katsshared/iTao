@@ -53,20 +53,20 @@ Indivisibility is inherent in hierarchies of consciousness. For example, the hie
 
 Man as only being with freedom of choice, forms his own hierarchy of consciousness, which is mankind. Unlike other hierarchies of consciousness, each member of mankind has freedom of choice and consequently has its own Hierarch. Hierarch of man is his individuality, his highest ‘I’ (Self) in the manifested world structure. Man cannot exist separated from his individuality, and individuality cannot exist separated from mankind. Consciousness of mankind is united consciousness of all human Hierarchs.
 
-The teaching about the hierarchies of consciousness, as beings without freedom of choice, is a teaching about gods. There are known three  hierarchies of consciousness., named as follows. 
+The teaching about the hierarchies of consciousness, as beings without freedom of choice, is a teaching about gods. There are known three  hierarchies of consciousness, named as follows. 
 
 1st Hierarchy
-Spirits of Love (Seraphims)
-Spirits of Harmony (Cherubims)
-Spirits of Will (Thrones)
+1. Spirits of Love (Seraphims)
+2. Spirits of Harmony (Cherubims)
+3. Spirits of Will (Thrones)\n
 2nd Hierarchy
-Spirits of Wisdom (Dominions, Kyriotetes)
-Spirits of Movement (Mights, Virtutes, Dynamis)
-Spirits of Form (Powers, Potestates, Exusiai)
+1. Spirits of Wisdom (Dominions, Kyriotetes)
+2. Spirits of Movement (Mights, Virtutes, Dynamis)
+3. Spirits of Form (Powers, Potestates, Exusiai)\n
 3rd Hierarchy
-Spirits of Personality (Primal Beginnings, Beginnings, Archai)
-Spirits of Fire, Messangers of Archai (Archangel, Archangeloi)
-Sons of Life, Messangers (Angels, Angeloi)
+1. Spirits of Personality (Primal Beginnings, Beginnings, Archai)
+2. Spirits of Fire, Messangers of Archai (Archangel, Archangeloi)
+3. Sons of Life, Messangers (Angels, Angeloi)
 
 Beings without freedom of choice can have consciousness higher and lower than consciousness of man. Those beings whose consciousness is higher than consciousness of man are called the heavenly beings or Devas. 
 
@@ -196,18 +196,18 @@ Further extension of life of man after death leads him in the realms of Thrones,
     
 The physical form of man allows him to have the ‘I’-consciousness on the Earth. All hierarchies of consciousness which are manifested in it are manifested in configurations of stars, planets, animals, plants and minerals too. Physical form of modern man is only one of all possible forms in which man can have the ‘I’-consciousness. All possibilities of manifestation of such forms are in his individuality. In antiquity the connection of individuality with the form of manifestation of man on the Earth was designated in form of cosmic man inscribed in the animal circle - Zodiac. Each part of human form was drawn to the corresponding constellation of animal circle from which acted Thrones, Cherubims and Seraphims. Thus, one has giant cosmic man from whom every single man has got his physical form.
 
-Head (♈Aries, Ram)
-Neck (♉Taurus, Bull)
-Arms (♊Gemini, Twins)
-Breast (♋Cancer, Crab)
-Heart (♌Leo, Lion)
-Stomach (♍Virgo, Maiden)
-Pelvic gridle (♎Libra, Scales)
-Genitals (♏Scorpio, Scorpion, Eagle)
-Thighs (♐Sagiitarius, Archer)
-Knees (♈Capricon, Sea-Goat)
-Low legs (♒Aquarius, Water-Bearer, Man)
-Feet (♓Pisces, Fish)
+1. Head (♈Aries, Ram)
+2. Neck (♉Taurus, Bull)
+3. Arms (♊Gemini, Twins)
+4. Breast (♋Cancer, Crab)
+5. Heart (♌Leo, Lion)
+6. Stomach (♍Virgo, Maiden)
+7. Pelvic gridle (♎Libra, Scales)
+8. Genitals (♏Scorpio, Scorpion, Eagle)
+9. Thighs (♐Sagiitarius, Archer)
+10. Knees (♈Capricon, Sea-Goat)
+11. Low legs (♒Aquarius, Water-Bearer, Man)
+12. Feet (♓Pisces, Fish)
 
 Which form of manifestation modern man has, depends on his level of consciousness, and in the future, with the alteration of his consciousness, the form of his manifestation will change as well. In order man could have the form of physical body and to be conscious of physical space and time, interaction of all hierarchies of consciousness is necessary. The highest level of consciousness among the hierarchies, have Seraphims, Cherubims and Thrones. Above their consciousness there is level of consciousness of Trinity which is designated as the One, Two and Three and it is where plan of the development of the world structure comes from.
 
@@ -228,6 +228,38 @@ All rhythms of consciousness, life and form are manifested together. Therefore p
 This is one type of staying behind the development of consciousness of mankind. Personalities want to develop themselves, but cannot because of the connection with beings of the hierarchies of consciousness. Such personalities become the bearers of evil by virtue of their separation from mankind through connection with beings. They can be helped by other personalities, whose consciousness is higher than the level of consciousness of beings with which the stayed behind personalities are connected. The other type of staying behind appears when personalities can change their connection with beings of the hierarchies, but do not want it to do. The stayed behind personalities become not only the bearer of evil, but evil itself. Such state of consciousness that will appear between the stayed behind personalities and beings of the hierarchies, is characterized by the number six-six-six 666. This means personalities can become evil itself when they will pass through the development of 6*6*6 = 216 states of form.
 
 The following Jupiter state of consciousness will be the fifth of seven states. In the 6th state of consciousness, the Venus state of consciousness, in the 6th state of life and in the 6th state of form, when personalities will pass through the development of 216 states of forms, consciousness of the stayed behind personalities will develop such form of separation from mankind, that they become evil itself. This state of separation is called the eighth sphere, or hell, and the number 666 is called the critical number of evolution. In Apocalypse of St. John this number is referred to as the number of animal, or the number of the beast. The number six-six-six designates also Sorat. It is the name of personality which in the Sun state of the development of consciousness was the opponent of Jesus Christ. Sorat will be the leading personality of the eighth sphere. 
+
+Yin and yang
+
+Modern man develops his ‘I’-consciousness in the fourth, the Earth state of consciousness, in the fourth state of life and in the fourth state of form. In each state of form are manifested seven more periods of time. The development of the ‘I’-consciousness of man takes plaxe now in the fifth period which is called Continental. The first period is called Polar, the second – Hyperborean, the third – Lemurian, the fourth – Atlantic. The sixth and seventh periods are specified in the Apocalypse of St. John as the time of opening of seals (6:1-8:1) and of soundings of trumpets (8:2-11:15). 
+
+The periods of the 4-th state of consciousness, 4-th state of life, 4-th state of form are:
+
+1. The Polar period
+2. The Hyperborean period
+3. The Lemurian period
+4. The Atlantean period
+5. The Continental period
+6. The period of the opening of seals
+7. The period of the sounding of trumpets
+
+Each of these seven periods, is subdivided in its turn into seven other sub-periods during which the level of consciousness of mankind changes. Present time corresponds to fifth culture period which is called European. The first culture period is called Pre-Indian, the second – Pre-Persian, the third – Egyptian-Chaldaic--Babylonian, the fourth – Greco-Latin culture period.
+
+The seven culture periods are characterized in the Apocalypse of St. John through letters (messages) to communities (churches) (2:1-3:22). The future sixth culture period is Slavic, and the seventh – American culture period. 
+
+The culture periods of the Continental period are:
+
+1. The Pre-Indian, ancient Indian culture period
+2. The Pre-Persian, ancient Persian culture period
+3. The Assyrian-Babylonian-Chaldaic-Egyptian-Hebrew culture period
+4. The Greco-Latin culture period
+5. The European culture period
+6. The Slavic culture period
+7. The American culture period
+
+In the Atlantean period of the development of the ‘I’-consciousness man has realized the concept of Tao as a rhythm between the Heaven above and the Earth below and as the source of that rhythm. Such rhythm was characterized by two states of consciousness as yin and yang. In any rhythm there are always two alternating states as result of principle of duality. These two states can be considered as two opposites. Because there is nothing unconscious, rhythm can be defined as alternation or change of two states of consciousness. Yin and yang were representations of these two alternating states of consciousness and not the abstract concept of two opposites. 
+
+The consciousness of the hierarchies of consciousness without freedom of choice is always rhythmic, otherwise the hierarchies would have the freedom of choice. That is why man making his free choice through the hierarchies of consciousness without freedom of choice always involves yin and yang in the development of his ‘I’-consciousness.
 
 '''
 )

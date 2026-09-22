@@ -15,9 +15,7 @@ There will be no rotation if only one suspended big mass of any weight is used. 
 The procedure is simple:
 
 1. Place two big equal masses in proper positions and let oscillating stop.    
-    
-2. Remove one big mass and let oscillating stop.    
-    
+2. Remove one big mass and let oscillating stop.        
 3. Remove second big mass and let oscillating stop.
 
 The symmetry and equal (identical) masses are important for the rotation of torsion balance. Even the standard torsion balance with the swivel support can be used to prove this. In such a case the symmetric swivel support must be set perpendicular to the bob arm of torsion balance and stay without masses during an experiment. To achieve the best results the swivel support must be removed and only two suspended pairs of masses are used. 
@@ -39,9 +37,7 @@ Es findet keine Rotation statt, wenn nur eine einzige aufgehängte große Masse 
 Das Verfahren ist einfach:
 
 1. Platzieren Sie zwei große, gleich große Massen an den entsprechenden Positionen und lassen Sie die Schwingung stoppen.
-
 2. Entfernen Sie eine der großen Massen und lassen Sie die Schwingung stoppen.
-
 3. Entfernen Sie die zweite große Masse und lassen Sie die Schwingung stoppen.
 
 Für die Drehung der Torsionswaage sind Symmetrie und gleiche (identische) Massen wichtig. Als Beweis dafür kann bereits die serienmäßige Torsionswaage mit Schwenklager herangezogen werden. In einem solchen Fall muss die symmetrische Drehhalterung senkrecht zum Schwenkarm der Torsionswaage stehen und während eines Experiments ohne Massen bleiben. Um die besten Ergebnisse zu erzielen, muss die Schwenkhalterung entfernt werden und nur noch zwei aufgehängte Massenpaare verwendet werden.
@@ -63,9 +59,7 @@ ru_caexp = _('''
 Процедура проста:
 
 1. Разместите две большие равные массы в соответствующих положениях и дождитесь прекращения колебаний.
-
 2. Уберите одну большую массу и дождитесь прекращения колебаний.
-
 3. Уберите вторую большую массу и дождитесь прекращения колебаний.
 
 Симметрия и равенство (идентичность) масс играют важную роль во вращении крутильных весов. Это можно продемонстрировать даже с помощью стандартных крутильных весов, оснащенных поворотной опорой. В таком случае симметричную поворотную опору следует установить перпендикулярно коромыслу весов и оставить без грузов на время эксперимента. Для достижения наилучших результатов опору лучше убрать, используя лишь две подвешенные пары масс.
