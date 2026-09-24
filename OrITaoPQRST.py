@@ -1,39 +1,3 @@
-'''        
-    r0, r1, r2, r3, r4, r5 = impComplex("neurokit", data_sel, 100)
-        st.session_state.itaor0 = r0
-        st.session_state.itaor1 = r1
-        st.session_state.itaor2 = r2
-        st.session_state.itaor3 = r3
-        st.session_state.itaor4 = r4
-        st.session_state.itaor5 = r5
-                
-        st.session_state.figrun = True
-        st.session_state.sigidx = 0
-        
-        draw_image(st.session_state.pauseidx, "neurokit", dname, 100)
-
-    def run_exp(dname): 
-#        data = nk.data(dname)
-#        df, info = nk.bio_process(ecg=data["ECG"], sampling_rate=100)
-        
-        r0, r1, r2, r3, r4, r5 = expComplex("neurokit", data_sel, 100)
-        st.session_state.figrun = True
-        st.session_state.itaor0 = r0
-        st.session_state.itaor1 = r1
-        st.session_state.itaor2 = r2
-        st.session_state.itaor3 = r3
-        st.session_state.itaor4 = r4
-        st.session_state.itaor5 = r5
-
-        # 2. Als CSV speichern (index=False verhindert eine extra Spalte für Zeilennummern)
-        r0.to_csv("ekg/exp/"+dname+".csv", index=False)       
-        
-        msg("Finished") 
-              
-        return None
-
-
-'''                              
 
 
 import streamlit as st
@@ -268,7 +232,7 @@ def readData(data_name, csv=True):
     data_ekg = None
     if csv:
 #        msg("Read CSV data" + data_name  + ' (neurokit2)')
-        data_ekg = pd.read_csv("ekg/exp/"+data_name+".csv")                         
+        data_ekg = pd.read_csv("ekg/imp/"+data_name+".csv")                         
     else:
 #        msg('Retrieving data ' + data_name + ' (neurokit2)')
         data_ekg = nk.data(dataset=data_name)
