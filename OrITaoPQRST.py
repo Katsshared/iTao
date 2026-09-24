@@ -696,12 +696,12 @@ def del_main():
             
     def run_del(dname): 
         os.unlink(EKGIMPDIR+dname+".csv")
+        st.write("Deleted")
     
     db = st.button(label=_("Delete"))
     if db:
         run_del(data_sel)
     
-    st.write("Deleted")
               
 if __name__ == '__main__':
     
