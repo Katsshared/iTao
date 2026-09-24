@@ -532,9 +532,9 @@ def update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     st.session_state.PQRSTidx += 1
 
 def listFiles(dl=False):
-    data_names = ['bio_eventrelated_100hz', 
+    data_names = ('bio_eventrelated_100hz', 
                   'bio_resting_8min_100hz', 
-                  'bio_resting_5min_100hz']
+                  'bio_resting_5min_100hz')
     
     res = glob.glob(EKGIMPDIR + "*.csv", recursive=False)
     res = sorted(res)
@@ -557,7 +557,10 @@ def main():
                   'nabian2018', 'neurokit',  'pantompkins1985', 
                   'promac', 'rodrigues2021', 'zong2003')
     
-    data_names = listFiles()    
+    data_names = listFiles()
+    if not data_names:
+        return
+    
 #    data_names = ('bio_eventrelated_100hz', 
 #                  'bio_resting_8min_100hz', 
 #                  'bio_resting_5min_100hz')
@@ -668,6 +671,8 @@ def expComplex(algorithm_name, data_name, samplerate):
         
 def exp_main(): 
     data_names = listFiles()    
+    if not data_names:
+        return
 
     with st.container(horizontal=True, horizontal_alignment="left"):
         data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas_exp")    
@@ -677,7 +682,7 @@ def exp_main():
         csv = df.to_csv().encode("utf-8")
         
         st.download_button(
-            label="Download CSV",
+            label=_("Download CSV"),
             data=csv,
             file_name=dname+".csv",
             mime="text/csv",
@@ -696,7 +701,7 @@ def del_main():
             
     def run_del(dname): 
         os.unlink(EKGIMPDIR+dname+".csv")
-        st.write("Deleted")
+        msg(_("Success"))
     
     db = st.button(label=_("Delete"))
     if db:
