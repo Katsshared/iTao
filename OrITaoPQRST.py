@@ -1,32 +1,40 @@
-'''
+'''        
+    r0, r1, r2, r3, r4, r5 = impComplex("neurokit", data_sel, 100)
+        st.session_state.itaor0 = r0
+        st.session_state.itaor1 = r1
+        st.session_state.itaor2 = r2
+        st.session_state.itaor3 = r3
+        st.session_state.itaor4 = r4
+        st.session_state.itaor5 = r5
+                
+        st.session_state.figrun = True
+        st.session_state.sigidx = 0
+        
+        draw_image(st.session_state.pauseidx, "neurokit", dname, 100)
 
-import pandas as pd
-import neurokit2 as nk
+    def run_exp(dname): 
+#        data = nk.data(dname)
+#        df, info = nk.bio_process(ecg=data["ECG"], sampling_rate=100)
+        
+        r0, r1, r2, r3, r4, r5 = expComplex("neurokit", data_sel, 100)
+        st.session_state.figrun = True
+        st.session_state.itaor0 = r0
+        st.session_state.itaor1 = r1
+        st.session_state.itaor2 = r2
+        st.session_state.itaor3 = r3
+        st.session_state.itaor4 = r4
+        st.session_state.itaor5 = r5
 
-# 1. CSV-Datei mit Pandas einlesen
-data = pd.read_csv("pfad_zu_ihrer_datei.csv")
-
-# 2. Auf ein spezifisches Signal zugreifen (z. B. ECG)
-ecg_signal = data["ECG"]  # Ersetzen Sie "ECG" durch Ihren Spaltennamen
-sampling_rate = 1000     # Passen Sie die Abtastrate (Hz) an Ihre Daten an
-
-# 3. Signal mit NeuroKit2 verarbeiten
-signals, info = nk.ecg_process(ecg_signal, sampling_rate=sampling_rate)
-
-def write_csv(data, filename, parts=None, **kwargs)
-
-
-import neurokit2 as nk
-
-# 1. Beispiel-Daten laden und verarbeiten
-data = nk.data("bio_eventrelated_100hz")
-df, info = nk.bio_process(ecg=data["ECG"], sampling_rate=100)
-
-# 2. Als CSV speichern (index=False verhindert eine extra Spalte für Zeilennummern)
-df.to_csv("meine_physio_daten.csv", index=False)
+        # 2. Als CSV speichern (index=False verhindert eine extra Spalte für Zeilennummern)
+        r0.to_csv("ekg/exp/"+dname+".csv", index=False)       
+        
+        msg("Finished") 
+              
+        return None
 
 
-'''
+'''                              
+
 
 import streamlit as st
 #from streamlit_image_coordinates import streamlit_image_coordinates
@@ -37,6 +45,8 @@ import math
 import matplotlib.pyplot as plt
 
 import neurokit2 as nk
+import pandas as pd
+import glob
 import gettext
 
 
@@ -252,13 +262,22 @@ def draw_image(pause, algorithm_name, data_name, samplerate):
         saveFig()      
         
 
+
+def readData(data_name, csv=True):
+    
+    data_ekg = None
+    if csv:
+        msg("Read CSV data" + data_name  + ' (neurokit2)')
+        data_ekg = pd.read_csv("ekg/exp/"+data_name+".csv")                         
+    else:
+        msg('Retrieving data ' + data_name + ' (neurokit2)')
+        data_ekg = nk.data(dataset=data_name)
+    return data_ekg
+
+
 def initComplex(pause, algorithm_name, data_name, samplerate):
     
-    msg('Retrieving data ' + data_name + ' (neurokit2)')
-#        bio_eventrelated_100hz bio_resting_8min_100hz bio_resting_5min_100hz samplerate = 100
-#        samplerate = 100
-    data = nk.data(dataset=data_name)
-#        data = nk.data(dataset="bio_resting_5min_100hz")
+    data = readData(data_name)
     ecg_signal = data["ECG"]
         
     msg('Retrieving EKG peaks (neurokit2)')
@@ -311,13 +330,11 @@ def update_PQRST(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     
     minLen = min(len(p_peaks), len(q_peaks)-1, len(r_peaks)-1, len(s_peaks)-1, len(t_peaks)-1)
     if st.session_state.PQRSTidx >= minLen:
-#            print('update limit reached idx=' + str(idxs))
+#        print('update limit reached idx=' + str(st.session_state.PQRSTidx))
         st.session_state.PQRSTidx = 0
 
-#        print('update idx=' + str(idxs))
-    
     idx = st.session_state.PQRSTidx
-    
+
     clrP = 'orange'
     clrQ = 'green'
     clrR = 'red'
@@ -547,10 +564,18 @@ def update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
 #    plt.pause(1)
     
     st.session_state.PQRSTidx += 1
-    
-# яремная ямка (лат. fossa jugularis) или надгрудинная ямка
-# suprasternal notch
-# Jugulargrube
+
+def listFiles():    
+    res = glob.glob("ekg/imp/*.csv", recursive=False)
+    res = sorted(res)
+    ar = []
+
+    for file in res:  
+#        print("FILE", file)      
+        ar.append(file[8:-4].strip())
+        
+    return ar           
+
 def main(): 
     algorithms = ('christov2004', 'elgendi2010', 'engzeemod2012', 
                   'gamboa2008', 'hamilton2002', 'kalidas2017', 
@@ -558,16 +583,18 @@ def main():
                   'nabian2018', 'neurokit',  'pantompkins1985', 
                   'promac', 'rodrigues2021', 'zong2003')
     
-    data_names = ('bio_eventrelated_100hz', 
-                  'bio_resting_8min_100hz', 
-                  'bio_resting_5min_100hz')
+    data_names = listFiles()    
+#    data_names = ('bio_eventrelated_100hz', 
+#                  'bio_resting_8min_100hz', 
+#                  'bio_resting_5min_100hz')
     with st.container(horizontal=True, horizontal_alignment="left"):
         pause_sel = st.radio(_(" "), ("Pause", "Run"), key = "itao_pause", horizontal=True, index=0)
-        rate_sel = st.select_slider(_("Sample rate"), options=[100, 200, 300, 400, 500,],)
+        rate_sel = st.number_input(_("Sample rate"), value=100, placeholder=_("Sample rate"), min_value=100, max_value=1000, step=100) 
         st.session_state.dist = st.number_input(_("Distance between navel and fossa jugularis"), value=37.0, placeholder=_("Distance between navel and fossa jugularis"), min_value=5.0, max_value=100.0, step=0.1) 
     with st.container(horizontal=True, horizontal_alignment="left"):
-        alg_sel = st.selectbox(label=_("Algorithm"), options=algorithms, key="itao_algs", index=10)    
-        data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas", index=1)    
+        alg_sel = 'neurokit'
+#        alg_sel = st.selectbox(label=_("Algorithm"), options=algorithms, key="itao_algs", index=10)    
+        data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas")    
         sig_sel = st.radio(_("Plot"), ("PQRST", "BLOOD", "SIGNAL"), key = "itao_sig", horizontal=True, index=0)
     if sig_sel== "PQRST":
         st.session_state.sigidx = 0 
@@ -576,13 +603,12 @@ def main():
     if sig_sel== "SIGNAL":
         st.session_state.sigidx = 2
     
-            
     def run_algorithm(): 
 #        print("Selected algorithm: {}".format(alg_sel))
 #        print("Data name {}".format(data_sel))
 #        print("Sample rate {}".format(rate_sel))
                  
-        msg('Running algorithm ' + alg_sel + ', Data ' + data_sel + ', Rate ' + str(rate_sel) + ' ' + sig_sel)
+        msg('Running algorithm ' + alg_sel + ', Data ' + data_sel + ', Rate ' + str(rate_sel) + ', ' + sig_sel)
         draw_image(st.session_state.pauseidx, alg_sel, data_sel, rate_sel)
 #        initComplex(st.session_state.pauseidx, alg_sel, data_sel, rate_sel)
         
@@ -599,7 +625,104 @@ def main():
         run_algorithm()
       
     st.write(pqrst[st.session_state.itaolang])
+
+    
+def impComplex(algorithm_name, data_name, samplerate):
+    
+    data_ekg = readData(data_name)
+
+    ecg_signal = data_ekg["ECG"]
         
+#    msg('Retrieving EKG peaks (neurokit2)')
+
+    # Extract R-peaks locations nabian2018 elgendi2010 martinez2004 neurokit
+    rsigs, rpeaks = nk.ecg_peaks(ecg_signal, method=algorithm_name, sampling_rate=samplerate)
+                
+#    msg('Delineating EKG (neurokit2)')
+
+    # Delineate the ECG signal method = peak cwt dwt
+    sigs, waves_peak = nk.ecg_delineate(ecg_signal, rpeaks, sampling_rate=samplerate, method="peak")
+    
+    r0 = ecg_signal
+    r1 = waves_peak['ECG_P_Peaks']
+    r2 = waves_peak['ECG_Q_Peaks']
+    r3 = rpeaks['ECG_R_Peaks']
+    r4 = waves_peak['ECG_S_Peaks']
+    r5 = waves_peak['ECG_T_Peaks']
+    
+    return r0, r1, r2, r3, r4, r5
+
+
+def imp_main(): 
+    uploaded_file = st.file_uploader(label=" ", key="itao_imp", type="csv")
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+        df.to_csv("ekg/imp/"+uploaded_file.name, index=False)
+        msg(_("Success"))
+
+
+def expComplex(algorithm_name, data_name, samplerate):
+    
+    msg('Retrieving data ' + data_name + ' (neurokit2)')
+#        bio_eventrelated_100hz bio_resting_8min_100hz bio_resting_5min_100hz samplerate = 100
+#        samplerate = 100
+    data = nk.data(dataset=data_name)
+#        data = nk.data(dataset="bio_resting_5min_100hz")
+    ecg_signal = data["ECG"]
+        
+    msg('Retrieving EKG peaks (neurokit2)')
+
+    # Extract R-peaks locations nabian2018 elgendi2010 martinez2004 neurokit
+    rsigs, rpeaks = nk.ecg_peaks(ecg_signal, method=algorithm_name, sampling_rate=samplerate)
+                
+    msg('Delineating EKG (neurokit2)')
+
+    # Delineate the ECG signal method = peak cwt dwt
+    sigs, waves_peak = nk.ecg_delineate(ecg_signal, rpeaks, sampling_rate=samplerate, method="peak")
+    
+    r0 = ecg_signal
+    r1 = waves_peak['ECG_P_Peaks']
+    r2 = waves_peak['ECG_Q_Peaks']
+    r3 = rpeaks['ECG_R_Peaks']
+    r4 = waves_peak['ECG_S_Peaks']
+    r5 = waves_peak['ECG_T_Peaks']
+    
+#    data = {'ECG_P_Peaks': r1, 'ECG_Q_Peaks': r2, 'ECG_R_Peaks': r3,  'ECG_S_Peaks': r4,  'ECG_T_Peaks': r5, }
+#    df = pd.DataFrame(data)
+    return r0, r1, r2, r3, r4, r5
+
+        
+def exp_main(): 
+    data_names = listFiles()    
+
+    with st.container(horizontal=True, horizontal_alignment="left"):
+        data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas_exp")    
+    
+            
+    def run_exp(dname): 
+        df = pd.read_csv("ekg/imp/"+dname+".csv")
+        csv = df.to_csv().encode("utf-8")
+        
+        st.download_button(
+            label="Download CSV",
+            data=csv,
+            file_name=dname+".csv",
+            mime="text/csv",
+            icon=":material/download:",
+        )
+              
+        return None
+    
+    run_exp(data_sel)
+              
 if __name__ == '__main__':
-    main()        
+    
+    tab1, tab2, tab3 = st.tabs([_("PQRST"), _("Export"), _("Import"), ])
+    with tab1:
+        main()
+    with tab2:
+        exp_main()
+    with tab3:
+        imp_main()
+     
             
