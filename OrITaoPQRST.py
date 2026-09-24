@@ -267,10 +267,10 @@ def readData(data_name, csv=True):
     
     data_ekg = None
     if csv:
-        msg("Read CSV data" + data_name  + ' (neurokit2)')
+#        msg("Read CSV data" + data_name  + ' (neurokit2)')
         data_ekg = pd.read_csv("ekg/exp/"+data_name+".csv")                         
     else:
-        msg('Retrieving data ' + data_name + ' (neurokit2)')
+#        msg('Retrieving data ' + data_name + ' (neurokit2)')
         data_ekg = nk.data(dataset=data_name)
     return data_ekg
 
@@ -280,12 +280,12 @@ def initComplex(pause, algorithm_name, data_name, samplerate):
     data = readData(data_name)
     ecg_signal = data["ECG"]
         
-    msg('Retrieving EKG peaks (neurokit2)')
+#    msg('Retrieving EKG peaks (neurokit2)')
 
     # Extract R-peaks locations nabian2018 elgendi2010 martinez2004 neurokit
     sigs, rpeaks = nk.ecg_peaks(ecg_signal, method=algorithm_name, sampling_rate=samplerate)
                 
-    msg('Delineating EKG (neurokit2)')
+#    msg('Delineating EKG (neurokit2)')
 
     # Delineate the ECG signal method = peak cwt dwt
     sigs, waves_peak = nk.ecg_delineate(ecg_signal, rpeaks, sampling_rate=samplerate, method="peak")
