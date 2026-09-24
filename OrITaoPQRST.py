@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import neurokit2 as nk
 import pandas as pd
 import glob
+import os
 import gettext
 
 
@@ -19,6 +20,7 @@ localizator.install()
 _ = localizator.gettext 
 
 FIGPNGFILENAME = "images/fig.png"
+EKGIMPDIR = "ekg/imp/"
 
 en_pqrst = _('''
 The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
@@ -232,7 +234,7 @@ def readData(data_name, csv=True):
     data_ekg = None
     if csv:
 #        msg("Read CSV data" + data_name  + ' (neurokit2)')
-        data_ekg = pd.read_csv("ekg/imp/"+data_name+".csv")                         
+        data_ekg = pd.read_csv(EKGIMPDIR+data_name+".csv")                         
     else:
 #        msg('Retrieving data ' + data_name + ' (neurokit2)')
         data_ekg = nk.data(dataset=data_name)
@@ -529,15 +531,23 @@ def update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     
     st.session_state.PQRSTidx += 1
 
-def listFiles():    
-    res = glob.glob("ekg/imp/*.csv", recursive=False)
+def listFiles(dl=False):
+    data_names = ['bio_eventrelated_100hz', 
+                  'bio_resting_8min_100hz', 
+                  'bio_resting_5min_100hz']
+    
+    res = glob.glob(EKGIMPDIR + "*.csv", recursive=False)
     res = sorted(res)
     ar = []
 
-    for file in res:  
+    for file in res:
+        fname = file[8:-4].strip()
+        if dl == False:  
+            ar.append(fname)
+        elif fname not in data_names:  
 #        print("FILE", file)      
-        ar.append(file[8:-4].strip())
-        
+            ar.append(fname)
+
     return ar           
 
 def main(): 
@@ -621,7 +631,7 @@ def imp_main():
     uploaded_file = st.file_uploader(label=" ", key="itao_imp", type="csv")
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
-        df.to_csv("ekg/imp/"+uploaded_file.name, index=False)
+        df.to_csv(EKGIMPDIR+uploaded_file.name, index=False)
         msg(_("Success"))
 
 
@@ -661,10 +671,9 @@ def exp_main():
 
     with st.container(horizontal=True, horizontal_alignment="left"):
         data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas_exp")    
-    
             
     def run_exp(dname): 
-        df = pd.read_csv("ekg/imp/"+dname+".csv")
+        df = pd.read_csv(EKGIMPDIR + dname + ".csv")
         csv = df.to_csv().encode("utf-8")
         
         st.download_button(
@@ -674,19 +683,36 @@ def exp_main():
             mime="text/csv",
             icon=":material/download:",
         )
-              
-        return None
     
     run_exp(data_sel)
+        
+def del_main(): 
+    data_names = listFiles(True)
+    if not data_names:
+        return
+
+    with st.container(horizontal=True, horizontal_alignment="left"):
+        data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas_del")        
+            
+    def run_del(dname): 
+        os.unlink(EKGIMPDIR+dname+".csv")
+    
+    db = st.button(label=_("Delete"))
+    if db:
+        run_del(data_sel)
+    
+    st.write("Deleted")
               
 if __name__ == '__main__':
     
-    tab1, tab2, tab3 = st.tabs([_("PQRST"), _("Export"), _("Import"), ])
+    tab1, tab2, tab3, tab4 = st.tabs([_("PQRST"), _("Export"), _("Import"), _("Delete"), ])
     with tab1:
         main()
     with tab2:
         exp_main()
     with tab3:
         imp_main()
+    with tab4:
+        del_main()
      
             
