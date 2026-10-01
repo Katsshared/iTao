@@ -619,6 +619,7 @@ data_names = {
     'patient001_s0016lre_MyocardialInfarction': _("age") + ": 81 " + _("sex") + ": " + _("female") + " " + _("ECG") + " " + _("date") + ": 18/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     'patient007_s0026lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 29/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     'patient007_s0029lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 31/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0038lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/11/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     'patient007_s0078lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 17/12/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     'patient008_s0028lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 30/10/1990 Reason for admission: Myocardial infarction',
     'patient008_s0037lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 06/11/1990 Reason for admission: Myocardial infarction',
