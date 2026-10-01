@@ -649,7 +649,8 @@ def listFiles(dl=False):
     ar = []
 
     for file in res:
-        fname = file[8:-4].strip()
+        fname = file[4:-4].strip()
+#        fname = file[8:-4].strip()
         if dl == False:  
             ar.append(fname)
         elif fname not in data_names.keys():  
