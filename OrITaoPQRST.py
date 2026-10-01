@@ -1,5 +1,4 @@
 
-
 import streamlit as st
 #from streamlit_image_coordinates import streamlit_image_coordinates
 
@@ -12,6 +11,8 @@ import neurokit2 as nk
 import pandas as pd
 import glob
 import os
+
+
 import gettext
 
 
@@ -20,7 +21,9 @@ localizator.install()
 _ = localizator.gettext 
 
 FIGPNGFILENAME = "images/fig.png"
-EKGIMPDIR = "ekg/imp/"
+EKGIMPDIR = "imp/"
+#EKGIMPDIR = "ekg/imp/"
+BLOODFACTOR = 18.0
 
 en_pqrst = _('''
 The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
@@ -43,6 +46,62 @@ The distance between navel and fossa jugularis is neсesary for calculation of o
 SIGNAL
 
 The usual ecg signals are shown.
+
+ECG DATA
+
+The ECG patients data was taken at Sampling rate 1000 Hz from PTB Diagnostic ECG Database https://www.physionet.org/content/ptbdb/1.0.0/
+
+patient001_s0010_re_MyocardialInfarction age: 81 sex: female ECG date: 01/10/1990 Reason for admission: Myocardial infarction
+
+patient001_s0014lre_MyocardialInfarction age: 81 sex: female ECG date: 17/10/1990 Reason for admission: Myocardial infarction
+
+patient001_s0016lre_MyocardialInfarction age: 81 sex: female ECG date: 18/10/1990 Reason for admission: Myocardial infarction
+
+patient007_s0026lre_MyocardialInfarction age: 70 sex: male ECG date: 29/10/1990 Reason for admission: Myocardial infarction
+
+patient007_s0029lre_MyocardialInfarction age: 70 sex: male ECG date: 31/10/1990 Reason for admission: Myocardial infarction
+
+patient007_s0038lre_MyocardialInfarction age: 70 sex: male ECG date: 07/11/1990 Reason for admission: Myocardial infarction
+
+patient007_s0078lre_MyocardialInfarction age: 70 sex: male ECG date: 17/12/1990 Reason for admission: Myocardial infarction
+
+patient008_s0028lre_MyocardialInfarction age: 60 sex: male ECG date: 30/10/1990 Reason for admission: Myocardial infarction
+
+patient008_s0037lre_MyocardialInfarction age: 60 sex: male ECG date: 06/11/1990 Reason for admission: Myocardial infarction
+
+patient008_s0068lre_MyocardialInfarction age: 60 sex: male ECG date: 05/12/1990 Reason for admission: Myocardial infarction
+
+patient037_s0112lre_MyocardialInfarction age: 50 sex: male ECG date: 24/01/1991 Reason for admission: Myocardial infarction
+
+patient037_s0120lre_MyocardialInfarction age: 50 sex: male ECG date: 30/01/1991 Reason for admission: Myocardial infarction
+
+patient104_s0306lre_HealthyControl age: 50 sex: male ECG date: 13/07/1992 Reason for admission: Healthy control
+
+patient159_s0390lre_Hypertrophy age: 73 sex: male ECG date: 07/01/1993 Reason for admission: Hypertrophy
+
+patient180_s0374lre_HealthyControl age: 37 sex: male ECG date: 26/11/1992 Reason for admission: Healthy control
+
+patient180_s0475_re_HealthyControl age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control
+
+patient180_s0476_re_HealthyControl age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control
+
+patient180_s0477_re_HealthyControl age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control
+
+patient180_s0490_re_HealthyControl age: 37 sex: male ECG date: 18/02/1997 Reason for admission: Healthy control
+
+patient180_s0545_re_HealthyControl age: 37 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control
+
+patient248_s0481_re_HealthyControl age: 64 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control
+
+patient251_s0486_re_HealthyControl age: 40 sex: male ECG date: 21/02/1997 Reason for admission: Healthy control
+
+patient251_s0506_re_HealthyControl age: 40 sex: male ECG date: 04/03/1997 Reason for admission: Healthy control
+
+patient264_s0500_re_HealthyControl age: 45 sex: male ECG date: 27/02/1997 Reason for admission: Healthy control
+
+patient292_s0555_re_MyocardialInfarction age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction
+
+patient292_s0556_re_MyocardialInfarction age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction
 
 '''
 )
@@ -69,6 +128,11 @@ SIGNAL
 
 Die üblichen EKG-Signale werden angezeigt.
 
+EKG-DATEN
+
+Die EKG-Daten der Patienten wurden mit einer Abtastrate von 1000 Hz aus der PTB Diagnostic ECG Database https://www.physionet.org/content/ptbdb/1.0.0/ entnommen.
+
+
 '''
 )
 
@@ -94,6 +158,11 @@ BLOOD
 
 Представлены стандартные сигналы ЭКГ.
 
+ДАННЫЕ
+
+Данные ЭКГ пациентов были получены из диагностической базы данных ЭКГ PTB https://www.physionet.org/content/ptbdb/1.0.0/ с частотой дискретизации 1000 Гц.
+
+
 '''
 )
 
@@ -103,12 +172,14 @@ st.title(_("PQRST"))
 
 if "PQRSTidx" not in st.session_state:
     st.session_state.PQRSTidx = 0
-if "sigidx" not in st.session_state:
-    st.session_state.sigidx = 0
-if "pauseidx" not in st.session_state:
-    st.session_state.pauseidx = 0
-if "figrun" not in st.session_state:
-    st.session_state.figrun = False
+if "PQRSTsigidx" not in st.session_state:
+    st.session_state.PQRSTsigidx = 0
+if "PQRSTpauseidx" not in st.session_state:
+    st.session_state.PQRSTpauseidx = 0
+if "PQRSTinit" not in st.session_state:
+    st.session_state.PQRSTinit = True
+if "PQRSTaveragedist" not in st.session_state:
+    st.session_state.PQRSTaveragedist = 0
     
 def msg(msg):
     placeholder = st.empty()
@@ -144,7 +215,10 @@ def CassiniSteinerShort(a, b, clr=None, vertical=True, half=False, upper=False, 
 #    If a ≤ b ≤ a√2 the "ovals" look no more like circles. 
 #    Here a is one, b goes from 1 to √2 (inclusively)               
 
-#    print ("CassiniSteinerShort")    
+#    print ("CassiniSteinerShort")
+    if a == 0:
+        a = 0.0001
+        
     t = np.linspace(-a + np.sqrt(a**2 + b**2), a + np.sqrt(a**2 + b**2), N)
     if a >= b:
         t = np.linspace(a + np.sqrt(a**2 - b**2), a + np.sqrt(a**2 + b**2), N)
@@ -202,32 +276,79 @@ def zero_NaN(peaks, val=0):
 
 def saveFig(): 
     plt.savefig(FIGPNGFILENAME, format="png")
+
+def calcDist(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):    
+                
+    zero_NaN(p_peaks)
+    zero_NaN(q_peaks)
+    zero_NaN(r_peaks)
+    zero_NaN(s_peaks)
+    zero_NaN(t_peaks)
+
+    minLen = min(len(p_peaks), len(q_peaks)-1, len(r_peaks)-1, len(s_peaks)-1, len(t_peaks)-1)
+
+    dist = 0
+    minDist = 0
+    maxDist = 0
+    cnt = 0
+    for idx in range(0, minLen):
+        total_sum = np.abs(unfiltered_ecg[p_peaks[idx]]) + np.abs(unfiltered_ecg[q_peaks[idx]]) + np.abs(unfiltered_ecg[r_peaks[idx]]) + np.abs(unfiltered_ecg[s_peaks[idx]]) + np.abs(unfiltered_ecg[t_peaks[idx]])
+        bloodc =  (BLOODFACTOR * total_sum) # total energy of blood circulation
+    
+#        a = st.session_state.PQRSTdist / 2
+#    print("DIST", str(st.session_state.PQRSTdist))
+        b = CassiniXY(bloodc, 0)
+        
+        if minDist == 0:
+            minDist = b
+        if maxDist < b:
+            maxDist = b
+            
+        dist += b
+        cnt = idx + 1
+         
+    dist = (dist / cnt) * 2
+    minDist *= 2
+    maxDist *= 2
+    st.session_state.PQRSTaveragedist = round(dist, 2)
+    st.session_state.PQRSTmindist = round(minDist, 2)
+    st.session_state.PQRSTmaxdist = round(maxDist, 2)
+
+#    print("CALC DIST MIN MAX", dist, minDist, maxDist)
+        
+    return dist
     
 #    https://discuss.streamlit.io/t/continuously-updating-image-content/86954/2
 @st.fragment(run_every=1)
 def draw_image(pause, algorithm_name, data_name, samplerate):
     if pause == 0:
         return None
-
+    
     st.image(FIGPNGFILENAME)
-    if st.session_state.figrun == False:
+    if st.session_state.PQRSTinit == True:
+#        print("DO INIT TRUE")
+        st.session_state.PQRSTidx = 0
+
         try:                
             r0, r1, r2, r3, r4, r5 = initComplex(pause, algorithm_name, data_name, samplerate)
-            st.session_state.figrun = True
             st.session_state.itaor0 = r0
             st.session_state.itaor1 = r1
             st.session_state.itaor2 = r2
             st.session_state.itaor3 = r3
             st.session_state.itaor4 = r4
             st.session_state.itaor5 = r5
+            
+#            calcDist(r0, r1, r2, r3, r4, r5)
+             
+            st.session_state.PQRSTinit = False
+
         except Exception as e:
             st.error(f"initComplex Failed:\n {e}")
-    if st.session_state.figrun == True:
+    if st.session_state.PQRSTinit == False:
         updateComplex(st.session_state.itaor0, st.session_state.itaor1, st.session_state.itaor2, 
-                      st.session_state.itaor3, st.session_state.itaor4, st.session_state.itaor5)
+                          st.session_state.itaor3, st.session_state.itaor4, st.session_state.itaor5)
         saveFig()      
         
-
 
 def readData(data_name, csv=True):
     
@@ -240,7 +361,6 @@ def readData(data_name, csv=True):
         data_ekg = nk.data(dataset=data_name)
     return data_ekg
 
-
 def initComplex(pause, algorithm_name, data_name, samplerate):
     
     data = readData(data_name)
@@ -248,7 +368,7 @@ def initComplex(pause, algorithm_name, data_name, samplerate):
         
 #    msg('Retrieving EKG peaks (neurokit2)')
 
-    # Extract R-peaks locations nabian2018 elgendi2010 martinez2004 neurokit
+    # Extract R-peaks locations
     sigs, rpeaks = nk.ecg_peaks(ecg_signal, method=algorithm_name, sampling_rate=samplerate)
                 
 #    msg('Delineating EKG (neurokit2)')
@@ -269,11 +389,13 @@ def initComplex(pause, algorithm_name, data_name, samplerate):
         if pause == 0:
 #            print("PAUSE")
             return None, None, None, None, None, None
+    
+#    print("RETURN initComplex")
     return r0, r1, r2, r3, r4, r5
     
                        
 def updateComplex(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
-    idx = st.session_state.sigidx
+    idx = st.session_state.PQRSTsigidx
     if idx == 0:
 #        msg('Plotting PQRST')
         update_PQRST(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks)        
@@ -353,7 +475,7 @@ def calcB(x, a):
     return b
 
 def plotCassini(peak, bloodc, clr, upper=True):
-#    f = 18.5*np.sqrt(2)/bloodc
+#    f = .5*np.sqrt(2)/bloodc
     dblf = 25 # display blood factor
     
     a = CassiniXY(peak, 0)
@@ -366,7 +488,7 @@ def plotCassini(peak, bloodc, clr, upper=True):
                    
 def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     plt.clf()
-            
+        
     zero_NaN(p_peaks)
     zero_NaN(q_peaks)
     zero_NaN(r_peaks)
@@ -381,9 +503,7 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
 #        print('update idx=' + str(idxs))
     
     idx = st.session_state.PQRSTidx          
-    
-    dblf = 25 # display blood factor
-    
+        
     clrP = 'orange'
     clrQ = 'green'
     clrR = 'pink'
@@ -391,7 +511,7 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     clrT = 'brown'
     
     total_sum = np.abs(unfiltered_ecg[p_peaks[idx]]) + np.abs(unfiltered_ecg[q_peaks[idx]]) + np.abs(unfiltered_ecg[r_peaks[idx]]) + np.abs(unfiltered_ecg[s_peaks[idx]]) + np.abs(unfiltered_ecg[t_peaks[idx]])
-    bloodc =  (18 * total_sum) # total energy of blood circulation
+    bloodc =  (BLOODFACTOR * total_sum) # total energy of blood circulation
 
     plotCassini(unfiltered_ecg[p_peaks[idx]], bloodc, clrP)
     plotCassini(unfiltered_ecg[q_peaks[idx]], bloodc, clrQ, False)
@@ -406,7 +526,8 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     if idx % 4 == 0:
         ls='-'
     
-    a = st.session_state.dist / 2
+    a = st.session_state.PQRSTdist / 2
+#    print("DIST", str(st.session_state.PQRSTdist))
     b = calcB(bloodc, a)
 #    print(str(idx) + ' a='+ str(a)  + ' b='+ str(b))
     CassiniSteinerShort(a, b, clr=clrBLOOD, vertical=True, half=False, upper=True, linestyle=ls, show=False)
@@ -415,10 +536,22 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     x = 0.5
     y = 0.5
     
-    label = 'PQRST ' + str(total_sum)
-    plt.plot(x, y, clrPQRST, label=label)
-    label = 'BLOOD ' + str(bloodc)
+    if st.session_state.PQRSTaveragedist == 0:
+        calcDist(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks)
+               
+    label = 'BLOOD ' + str(round(bloodc, 2))
     plt.plot(x, y, clrBLOOD, label=label)
+    label = 'DIST ' + str(round(CassiniXY(bloodc, 0), 2) * 2)
+    plt.plot(x, y, clrPQRST, label=label)
+#    label = 'AVED ' + str(st.session_state.PQRSTaveragedist)
+#    plt.plot(x, y, clrPQRST, label=label)
+#    label = 'MIND ' + str(st.session_state.PQRSTmindist)
+#    plt.plot(x, y, clrPQRST, label=label)
+#    label = 'MAXD ' + str(st.session_state.PQRSTmaxdist)
+#    plt.plot(x, y, clrPQRST, label=label)    
+   
+#    label = 'PQRST ' + str(total_sum)
+#    plt.plot(x, y, clrPQRST, label=label)
     plt.legend(fontsize=str(fs), loc='lower right')
                     
     plt.title("BLOOD plot " + str(st.session_state.PQRSTidx))
@@ -427,57 +560,6 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     
     st.session_state.PQRSTidx += 1
                
-def update_BLOOD_2(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
-    plt.clf()
-            
-    zero_NaN(p_peaks)
-    zero_NaN(q_peaks)
-    zero_NaN(r_peaks)
-    zero_NaN(s_peaks)
-    zero_NaN(t_peaks)
-    
-    minLen = min(len(p_peaks), len(q_peaks)-1, len(r_peaks)-1, len(s_peaks)-1, len(t_peaks)-1)
-    if st.session_state.PQRSTidx >= minLen:
-#            print('update limit reached idx=' + str(idxs))
-        st.session_state.PQRSTidx = 0
-
-#        print('update idx=' + str(idxs))
-    
-    clrS = 'blue'
-    clrB = 'red'
-
-    idx = st.session_state.PQRSTidx          
-    
-    total_sum = np.abs(unfiltered_ecg[p_peaks[idx]]) + np.abs(unfiltered_ecg[q_peaks[idx]]) + np.abs(unfiltered_ecg[r_peaks[idx]]) + np.abs(unfiltered_ecg[s_peaks[idx]]) + np.abs(unfiltered_ecg[t_peaks[idx]])
-    
-    a = CassiniXY(total_sum, 0)
-    CassiniSteinerShort(a, a, clr=clrS, vertical=True, half=True, upper=False, show=False)
-    
-    ls='--'
-    bloodc =  (18 * total_sum) # total energy of blood circulation
-    if idx % 4 == 0:
-        ls='-'
-        
-    a = CassiniXY(bloodc, 0)
-#    print(str(idx) + ' a='+ str(a)  + ' b='+ str(bloodc))
-    CassiniSteinerShort(a, a, clr=clrB, vertical=True, half=True, upper=True, linestyle=ls, show=False)
-    
-    fs = 8
-    x = 0.5
-    y = 0.5
-    
-    label = 'PQRST ' + str(total_sum)
-    plt.plot(x, y, clrS, label=label)
-    label = 'BLOOD ' + str(bloodc)
-    plt.plot(x, y, clrB, label=label)
-    plt.legend(fontsize=str(fs), loc='lower right')
-                    
-    plt.title("BLOOD plot " + str(st.session_state.PQRSTidx))
-    
-#    plt.pause(1)
-    
-    st.session_state.PQRSTidx += 1
-    
                
 def update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     plt.clf()
@@ -531,10 +613,36 @@ def update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     
     st.session_state.PQRSTidx += 1
 
+data_names = {
+    'patient001_s0010_re_MyocardialInfarction': _("age") + ": 81 " + _("sex") + ": " + _("female") + " " + _("ECG") + " " + _("date") + ": 01/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient001_s0014lre_MyocardialInfarction': _("age") + ": 81 " + _("sex") + ": " + _("female") + " " + _("ECG") + " " + _("date") + ": 17/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient001_s0016lre_MyocardialInfarction': _("age") + ": 81 " + _("sex") + ": " + _("female") + " " + _("ECG") + " " + _("date") + ": 18/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0026lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 29/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0029lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 31/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0078lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 17/12/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient008_s0028lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 30/10/1990 Reason for admission: Myocardial infarction',
+    'patient008_s0037lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 06/11/1990 Reason for admission: Myocardial infarction',
+    'patient008_s0068lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 05/12/1990 Reason for admission: Myocardial infarction',
+    'patient037_s0112lre_MyocardialInfarction': 'age: 50 sex: male ECG date: 24/01/1991 Reason for admission: Myocardial infarction',
+    'patient037_s0120lre_MyocardialInfarction': 'age: 50 sex: male ECG date: 30/01/1991 Reason for admission: Myocardial infarction',
+    'patient104_s0306lre_HealthyControl': 'age: 50 sex: male ECG date: 13/07/1992 Reason for admission: Healthy control',
+    'patient159_s0390lre_Hypertrophy': 'age: 73 sex: male ECG date: 07/01/1993 Reason for admission: Hypertrophy',
+    'patient180_s0374lre_HealthyControl': 'age: 37 sex: male ECG date: 26/11/1992 Reason for admission: Healthy control',
+    'patient180_s0475_re_HealthyControl': 'age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control',
+    'patient180_s0476_re_HealthyControl': 'age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control',
+    'patient180_s0477_re_HealthyControl': 'age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control',
+    'patient180_s0490_re_HealthyControl': 'age: 37 sex: male ECG date: 18/02/1997 Reason for admission: Healthy control',
+    'patient180_s0545_re_HealthyControl': 'age: 37 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control',
+    'patient248_s0481_re_HealthyControl': 'age: 64 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control',
+    'patient251_s0486_re_HealthyControl': 'age: 40 sex: male ECG date: 21/02/1997 Reason for admission: Healthy control',
+    'patient251_s0503_re_HealthyControl': 'age: 40 sex: male ECG date: 04/03/1997 Reason for admission: Healthy control',
+    'patient251_s0506_re_HealthyControl': 'age: 40 sex: male ECG date: 04/03/1997 Reason for admission: Healthy control',
+    'patient264_s0500_re_HealthyControl': 'age: 45 sex: male ECG date: 27/02/1997 Reason for admission: Healthy control',
+    'patient292_s0555_re_MyocardialInfarction': 'age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction',
+    'patient292_s0556_re_MyocardialInfarction': 'age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction',
+    }
+
 def listFiles(dl=False):
-    data_names = ('bio_eventrelated_100hz', 
-                  'bio_resting_8min_100hz', 
-                  'bio_resting_5min_100hz')
     
     res = glob.glob(EKGIMPDIR + "*.csv", recursive=False)
     res = sorted(res)
@@ -544,91 +652,83 @@ def listFiles(dl=False):
         fname = file[8:-4].strip()
         if dl == False:  
             ar.append(fname)
-        elif fname not in data_names:  
+        elif fname not in data_names.keys():  
 #        print("FILE", file)      
             ar.append(fname)
 
     return ar           
 
+def on_change():
+#    print("ON CHAGE")
+#    st.session_state.PQRSTinit = False
+    pass
+def on_data():
+#    print("ON DATA")
+    st.session_state.PQRSTinit = True
+    st.session_state.PQRSTaveragedist = 0
+def on_rate():
+#    print("ON RATE")
+    st.session_state.PQRSTinit = True
+    st.session_state.PQRSTaveragedist = 0
+
+    
 def main(): 
     algorithms = ('christov2004', 'elgendi2010', 'engzeemod2012', 
                   'gamboa2008', 'hamilton2002', 'kalidas2017', 
                   'koka2022', 'manikandan2012', 'martinez2004', 
-                  'nabian2018', 'neurokit',  'pantompkins1985', 
+                  'nabian20', 'neurokit',  'pantompkins1985', 
                   'promac', 'rodrigues2021', 'zong2003')
     
-    data_names = listFiles()
-    if not data_names:
+    ekg_datas = listFiles()
+    if not ekg_datas:
         return
     
-#    data_names = ('bio_eventrelated_100hz', 
+#    ekg_datas = ('bio_eventrelated_100hz', 
 #                  'bio_resting_8min_100hz', 
 #                  'bio_resting_5min_100hz')
     with st.container(horizontal=True, horizontal_alignment="left"):
         pause_sel = st.radio(_(" "), ("Pause", "Run"), key = "itao_pause", horizontal=True, index=0)
-        rate_sel = st.number_input(_("Sample rate"), value=100, placeholder=_("Sample rate"), min_value=100, max_value=1000, step=100) 
-        st.session_state.dist = st.number_input(_("Distance between navel and fossa jugularis"), value=37.0, placeholder=_("Distance between navel and fossa jugularis"), min_value=5.0, max_value=100.0, step=0.1) 
+        rate_sel = st.number_input(_("Sample rate"), on_change=on_rate, value=1000, placeholder=_("Sample rate"), min_value=100, max_value=3000, step=100) 
+        dist_sel = st.number_input(_("Distance between navel and fossa jugularis"), value=41.0, placeholder=_("Distance between navel and fossa jugularis"), 
+                                   on_change=on_change, min_value=5.0, max_value=100.0, step=0.1) 
     with st.container(horizontal=True, horizontal_alignment="left"):
-        alg_sel = 'neurokit'
-#        alg_sel = st.selectbox(label=_("Algorithm"), options=algorithms, key="itao_algs", index=10)    
-        data_sel = st.selectbox(label=_("Data name"), options=data_names, key="itao_datas")    
-        sig_sel = st.radio(_("Plot"), ("PQRST", "BLOOD", "SIGNAL"), key = "itao_sig", horizontal=True, index=0)
+#        alg_sel =  'manikandan2012' # 'neurokit' 
+        alg_sel = st.selectbox(label=_("Algorithm"), on_change=on_data, options=algorithms, key="itao_algs", index=10)    
+        data_sel = st.selectbox(label=_("Data name"), on_change=on_data, options=ekg_datas, key="itao_datas")
+        sig_sel = st.radio(_("Plot"), ("PQRST", "BLOOD", "SIGNAL"), on_change=on_change, key = "itao_sig", horizontal=True, index=0)
     if sig_sel== "PQRST":
-        st.session_state.sigidx = 0 
+        st.session_state.PQRSTsigidx = 0 
     if sig_sel== "BLOOD":
-        st.session_state.sigidx = 1 
+        st.session_state.PQRSTsigidx = 1 
     if sig_sel== "SIGNAL":
-        st.session_state.sigidx = 2
+        st.session_state.PQRSTsigidx = 2
     
     def run_algorithm(): 
 #        print("Selected algorithm: {}".format(alg_sel))
 #        print("Data name {}".format(data_sel))
 #        print("Sample rate {}".format(rate_sel))
-                 
-        msg('Running algorithm ' + alg_sel + ', Data ' + data_sel + ', Rate ' + str(rate_sel) + ', ' + sig_sel)
-        draw_image(st.session_state.pauseidx, alg_sel, data_sel, rate_sel)
-#        initComplex(st.session_state.pauseidx, alg_sel, data_sel, rate_sel)
-        
-        if st.session_state.PQRSTidx == 0:
-            msg('Finished')
-            msg('Select algorithm, data name, sample rate and press Run button')
+        if "PRQSTdataname" not in st.session_state:
+#            st.session_state.PQRSTinit = True
+            st.session_state.PQRSTdataname = data_sel
+            st.session_state.PRQSTrate = rate_sel
+            st.session_state.PQRSTdist = dist_sel
+#            st.session_state.PQRSTaveragedist = 0
+
+        msg(_("Run") + " " + _("algorithm") + " " +  alg_sel + ", " + _("Data") + " " + data_sel + ", " + _("Rate") + " " + str(rate_sel) + ", " + sig_sel)
+        if data_sel in data_names.keys():
+            msg('Patient ' + data_names[data_sel])
+
+        draw_image(st.session_state.PQRSTpauseidx, alg_sel, data_sel, rate_sel)
         
         return None
         
     if pause_sel == "Pause":
-        st.session_state.pauseidx = 0
+        st.session_state.PQRSTpauseidx = 0
     elif pause_sel == "Run":
-        st.session_state.pauseidx = 1
+        st.session_state.PQRSTpauseidx = 1
         run_algorithm()
       
     st.write(pqrst[st.session_state.itaolang])
-
-    
-def impComplex(algorithm_name, data_name, samplerate):
-    
-    data_ekg = readData(data_name)
-
-    ecg_signal = data_ekg["ECG"]
-        
-#    msg('Retrieving EKG peaks (neurokit2)')
-
-    # Extract R-peaks locations nabian2018 elgendi2010 martinez2004 neurokit
-    rsigs, rpeaks = nk.ecg_peaks(ecg_signal, method=algorithm_name, sampling_rate=samplerate)
-                
-#    msg('Delineating EKG (neurokit2)')
-
-    # Delineate the ECG signal method = peak cwt dwt
-    sigs, waves_peak = nk.ecg_delineate(ecg_signal, rpeaks, sampling_rate=samplerate, method="peak")
-    
-    r0 = ecg_signal
-    r1 = waves_peak['ECG_P_Peaks']
-    r2 = waves_peak['ECG_Q_Peaks']
-    r3 = rpeaks['ECG_R_Peaks']
-    r4 = waves_peak['ECG_S_Peaks']
-    r5 = waves_peak['ECG_T_Peaks']
-    
-    return r0, r1, r2, r3, r4, r5
-
 
 def imp_main(): 
     uploaded_file = st.file_uploader(label=" ", key="itao_imp", type="csv")
@@ -637,38 +737,6 @@ def imp_main():
         df.to_csv(EKGIMPDIR+uploaded_file.name, index=False)
         msg(_("Success"))
 
-
-def expComplex(algorithm_name, data_name, samplerate):
-    
-    msg('Retrieving data ' + data_name + ' (neurokit2)')
-#        bio_eventrelated_100hz bio_resting_8min_100hz bio_resting_5min_100hz samplerate = 100
-#        samplerate = 100
-    data = nk.data(dataset=data_name)
-#        data = nk.data(dataset="bio_resting_5min_100hz")
-    ecg_signal = data["ECG"]
-        
-    msg('Retrieving EKG peaks (neurokit2)')
-
-    # Extract R-peaks locations nabian2018 elgendi2010 martinez2004 neurokit
-    rsigs, rpeaks = nk.ecg_peaks(ecg_signal, method=algorithm_name, sampling_rate=samplerate)
-                
-    msg('Delineating EKG (neurokit2)')
-
-    # Delineate the ECG signal method = peak cwt dwt
-    sigs, waves_peak = nk.ecg_delineate(ecg_signal, rpeaks, sampling_rate=samplerate, method="peak")
-    
-    r0 = ecg_signal
-    r1 = waves_peak['ECG_P_Peaks']
-    r2 = waves_peak['ECG_Q_Peaks']
-    r3 = rpeaks['ECG_R_Peaks']
-    r4 = waves_peak['ECG_S_Peaks']
-    r5 = waves_peak['ECG_T_Peaks']
-    
-#    data = {'ECG_P_Peaks': r1, 'ECG_Q_Peaks': r2, 'ECG_R_Peaks': r3,  'ECG_S_Peaks': r4,  'ECG_T_Peaks': r5, }
-#    df = pd.DataFrame(data)
-    return r0, r1, r2, r3, r4, r5
-
-        
 def exp_main(): 
     data_names = listFiles()    
     if not data_names:
