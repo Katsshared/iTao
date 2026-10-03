@@ -27,141 +27,80 @@ BLOODFACTOR = 18.0
 
 en_pqrst = _('''
 The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
-It has the following options:
+The patients data were taken from PTB Diagnostic ECG Database (https://www.physionet.org/content/ptbdb/1.0.0/).
+ECGs were recorded at sampling rate 1000 Hz. The application has the following options:
 
 PQRST
                                                                                                                                                                                 
 Instead of usual PQRST peaks, the vertical half-lemniscates are used.
 The height of half-lemniscate is equal to the height of usual PQRST peak.
 The values of the PQRST peaks and percentage of peaks are shown.
-The Q and S peaks can have negative values.
 It allows to see, that any change of one part of PQRST peak leads to the change of the whole PQRST complex.
 
 BLOOD
                                                                                                                                                                                 
 The energy of blood makes the heart beat. It is several times more than the total energy of one beat. The energy of blood is shown as Cassini oval.
-If the the form of curve has a form of two separated ovals, this could mean an illness.
+If the form of curve has a form of two separated ovals, this could indicate an illness.
+The illness tendency is displayed in percent.
 The distance between navel and fossa jugularis is neсesary for calculation of oval.
 
 SIGNAL
 
 The usual ecg signals are shown.
 
-ECG DATA
-
-The ECG patients data was taken at Sampling rate 1000 Hz from PTB Diagnostic ECG Database https://www.physionet.org/content/ptbdb/1.0.0/
-
-patient001_s0010_re_MyocardialInfarction age: 81 sex: female ECG date: 01/10/1990 Reason for admission: Myocardial infarction
-
-patient001_s0014lre_MyocardialInfarction age: 81 sex: female ECG date: 17/10/1990 Reason for admission: Myocardial infarction
-
-patient001_s0016lre_MyocardialInfarction age: 81 sex: female ECG date: 18/10/1990 Reason for admission: Myocardial infarction
-
-patient007_s0026lre_MyocardialInfarction age: 70 sex: male ECG date: 29/10/1990 Reason for admission: Myocardial infarction
-
-patient007_s0029lre_MyocardialInfarction age: 70 sex: male ECG date: 31/10/1990 Reason for admission: Myocardial infarction
-
-patient007_s0038lre_MyocardialInfarction age: 70 sex: male ECG date: 07/11/1990 Reason for admission: Myocardial infarction
-
-patient007_s0078lre_MyocardialInfarction age: 70 sex: male ECG date: 17/12/1990 Reason for admission: Myocardial infarction
-
-patient008_s0028lre_MyocardialInfarction age: 60 sex: male ECG date: 30/10/1990 Reason for admission: Myocardial infarction
-
-patient008_s0037lre_MyocardialInfarction age: 60 sex: male ECG date: 06/11/1990 Reason for admission: Myocardial infarction
-
-patient008_s0068lre_MyocardialInfarction age: 60 sex: male ECG date: 05/12/1990 Reason for admission: Myocardial infarction
-
-patient037_s0112lre_MyocardialInfarction age: 50 sex: male ECG date: 24/01/1991 Reason for admission: Myocardial infarction
-
-patient037_s0120lre_MyocardialInfarction age: 50 sex: male ECG date: 30/01/1991 Reason for admission: Myocardial infarction
-
-patient104_s0306lre_HealthyControl age: 50 sex: male ECG date: 13/07/1992 Reason for admission: Healthy control
-
-patient159_s0390lre_Hypertrophy age: 73 sex: male ECG date: 07/01/1993 Reason for admission: Hypertrophy
-
-patient180_s0374lre_HealthyControl age: 37 sex: male ECG date: 26/11/1992 Reason for admission: Healthy control
-
-patient180_s0475_re_HealthyControl age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control
-
-patient180_s0476_re_HealthyControl age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control
-
-patient180_s0477_re_HealthyControl age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control
-
-patient180_s0490_re_HealthyControl age: 37 sex: male ECG date: 18/02/1997 Reason for admission: Healthy control
-
-patient180_s0545_re_HealthyControl age: 37 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control
-
-patient248_s0481_re_HealthyControl age: 64 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control
-
-patient251_s0486_re_HealthyControl age: 40 sex: male ECG date: 21/02/1997 Reason for admission: Healthy control
-
-patient251_s0506_re_HealthyControl age: 40 sex: male ECG date: 04/03/1997 Reason for admission: Healthy control
-
-patient264_s0500_re_HealthyControl age: 45 sex: male ECG date: 27/02/1997 Reason for admission: Healthy control
-
-patient292_s0555_re_MyocardialInfarction age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction
-
-patient292_s0556_re_MyocardialInfarction age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction
-
 '''
 )
 
 de_pqrst = _('''
 Die auf dem Paket „neurokit2“ basierende Anwendung veranschaulicht das Verhalten des PQRST-Komplexes als Ganzes.
-Die bietet die folgenden Optionen:
+Die Patientendaten stammen aus der PTB Diagnostic ECG Database (https://www.physionet.org/content/ptbdb/1.0.0/).
+Die EKGs wurden mit einer Abtastrate von 1000 Hz aufgezeichnet.
+Die Anwendung hat folgende Optionen:
 
 PQRST
                                                                                                                                                                                                                                                                                                                                                                  
 Anstelle der üblichen PQRST-Zacken werden vertikale Halblemniskaten verwendet. 
 Die Höhe der Halblemniskate entspricht dabei der Höhe der jeweiligen PQRST-Zacke. 
 Angezeigt werden die Werte der PQRST-Zacken sowie Prozentsatz der Zacken. 
-Die Q- und S-Zacken können negative Werte aufweisen. 
 Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu einer Veränderung des gesamten PQRST-Komplexes führt.
 
 BLOOD
 
 Die Energie des Blutes treibt den Herzschlag an. Sie ist ein Vielfaches der Gesamtenergie eines einzelnen Herzschlags. Die Energie des Blutes wird als Cassini-Oval dargestellt.
-Weist die Kurve die Form zweier getrennter Ovale auf, kann dies auf eine Erkrankung hinweisen.
+Wenn die Kurve die Form zweier getrennter Ovale aufweist, könnte dies auf eine Erkrankung hinweisen.
+Die Krankheitstendenz wird in Prozent angegeben.
 Der Abstand zwischen Bauchnabel und Fossa jugularis ist für die Berechnung des Ovals erforderlich.
 
 SIGNAL
 
 Die üblichen EKG-Signale werden angezeigt.
 
-EKG-DATEN
-
-Die EKG-Daten der Patienten wurden mit einer Abtastrate von 1000 Hz aus der PTB Diagnostic ECG Database https://www.physionet.org/content/ptbdb/1.0.0/ entnommen.
-
-
 '''
 )
 
 ru_pqrst = _('''
 Приложение, разработанное на основе пакета neurokit2, демонстрирует поведение комплекса PQRST в целом.
-Оно имеет следующие опции:
+Данные пациентов были взяты из диагностической базы данных ЭКГ PTB (https://www.physionet.org/content/ptbdb/1.0.0/).
+Запись ЭКГ производилась с частотой дискретизации 1000 Гц.
+Приложение имеет следующие опции:
 
 PQRST
                                                                                                                                                                                                                                                                                                                                                                  
 Вместо привычных пиков PQRST используются вертикальные полулемнискаты; высота полулемниската соответствует высоте стандартного пика PQRST. 
-Отображаются значения пиков PQRST и проценты пиков. 
-Пики Q и S могут принимать отрицательные значения. 
+Отображаются значения пиков PQRST и проценты пиков.  
 Это позволяет наглядно увидеть, что изменение любой части пика PQRST влечет за собой изменение всего комплекса PQRST.
 
 
 BLOOD
 
 Энергия крови обеспечивает биение сердца. Она в несколько раз превышает суммарную энергию одного сердечного сокращения. Энергия крови визуализируется в виде овала Кассини.
-Если кривая принимает форму двух раздельных овалов, это может указывать на заболевание.
+Если кривая имеет форму двух разделенных овалов, это может указывать на заболевание.
+Тенденция к заболеванию покзываается в процентах.
 Расстояние между пупком и яремной ямкой необходимо для расчета овала.
 
 СИГНАЛ
 
-Представлены стандартные сигналы ЭКГ.
-
-ДАННЫЕ
-
-Данные ЭКГ пациентов были получены из диагностической базы данных ЭКГ PTB https://www.physionet.org/content/ptbdb/1.0.0/ с частотой дискретизации 1000 Гц.
-
+Показаны стандартные сигналы ЭКГ.
 
 '''
 )
@@ -291,6 +230,8 @@ def calcDist(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     minDist = 0
     maxDist = 0
     cnt = 0
+    a = st.session_state.PQRSTdist / 2
+    cnta = 0
     for idx in range(0, minLen):
         total_sum = np.abs(unfiltered_ecg[p_peaks[idx]]) + np.abs(unfiltered_ecg[q_peaks[idx]]) + np.abs(unfiltered_ecg[r_peaks[idx]]) + np.abs(unfiltered_ecg[s_peaks[idx]]) + np.abs(unfiltered_ecg[t_peaks[idx]])
         bloodc =  (BLOODFACTOR * total_sum) # total energy of blood circulation
@@ -298,6 +239,8 @@ def calcDist(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
 #        a = st.session_state.PQRSTdist / 2
 #    print("DIST", str(st.session_state.PQRSTdist))
         b = CassiniXY(bloodc, 0)
+        if b < a:
+            cnta += 1
         
         if minDist == 0:
             minDist = b
@@ -313,8 +256,9 @@ def calcDist(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     st.session_state.PQRSTaveragedist = round(dist, 2)
     st.session_state.PQRSTmindist = round(minDist, 2)
     st.session_state.PQRSTmaxdist = round(maxDist, 2)
+    st.session_state.PQRSTpercentdist = round(percentage(cnta, cnt), 2)
 
-#    print("CALC DIST MIN MAX", dist, minDist, maxDist)
+#    print("CALC DIST MIN MAX CNT CNTA", round(dist, 2), round(minDist, 2), round(maxDist, 2), cnt, cnta, str(round(percentage(cnta, cnt), 2)) + "%")
         
     return dist
     
@@ -541,7 +485,7 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
                
     label = 'BLOOD ' + str(round(bloodc, 2))
     plt.plot(x, y, clrBLOOD, label=label)
-    label = 'DIST ' + str(round(CassiniXY(bloodc, 0), 2) * 2)
+    label = 'DIST ' + str(round(CassiniXY(bloodc, 0), 2) * 2) # + " " + str(st.session_state.PQRSTpercentdist) + "%"
     plt.plot(x, y, clrPQRST, label=label)
 #    label = 'AVED ' + str(st.session_state.PQRSTaveragedist)
 #    plt.plot(x, y, clrPQRST, label=label)
@@ -554,7 +498,7 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
 #    plt.plot(x, y, clrPQRST, label=label)
     plt.legend(fontsize=str(fs), loc='lower right')
                     
-    plt.title("BLOOD plot " + str(st.session_state.PQRSTidx))
+    plt.title("BLOOD plot " + str(st.session_state.PQRSTidx) + " \n" + _("Illness")  + " " + str(st.session_state.PQRSTpercentdist) + "%")
     
 #    plt.pause(1)
     
@@ -621,36 +565,37 @@ data_names = {
     'patient007_s0029lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 31/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     'patient007_s0038lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/11/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     'patient007_s0078lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 17/12/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient008_s0028lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 30/10/1990 Reason for admission: Myocardial infarction',
-    'patient008_s0037lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 06/11/1990 Reason for admission: Myocardial infarction',
-    'patient008_s0068lre_MyocardialInfarction': 'age: 60 sex: male ECG date: 05/12/1990 Reason for admission: Myocardial infarction',
-    'patient037_s0112lre_MyocardialInfarction': 'age: 50 sex: male ECG date: 24/01/1991 Reason for admission: Myocardial infarction',
-    'patient037_s0120lre_MyocardialInfarction': 'age: 50 sex: male ECG date: 30/01/1991 Reason for admission: Myocardial infarction',
-    'patient104_s0306lre_HealthyControl': 'age: 50 sex: male ECG date: 13/07/1992 Reason for admission: Healthy control',
-    'patient159_s0390lre_Hypertrophy': 'age: 73 sex: male ECG date: 07/01/1993 Reason for admission: Hypertrophy',
-    'patient180_s0374lre_HealthyControl': 'age: 37 sex: male ECG date: 26/11/1992 Reason for admission: Healthy control',
-    'patient180_s0475_re_HealthyControl': 'age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control',
-    'patient180_s0476_re_HealthyControl': 'age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control',
-    'patient180_s0477_re_HealthyControl': 'age: 37 sex: male ECG date: 19/12/1996 Reason for admission: Healthy control',
-    'patient180_s0490_re_HealthyControl': 'age: 37 sex: male ECG date: 18/02/1997 Reason for admission: Healthy control',
-    'patient180_s0545_re_HealthyControl': 'age: 37 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control',
-    'patient248_s0481_re_HealthyControl': 'age: 64 sex: male ECG date: 07/02/1996 Reason for admission: Healthy control',
-    'patient251_s0486_re_HealthyControl': 'age: 40 sex: male ECG date: 21/02/1997 Reason for admission: Healthy control',
-    'patient251_s0503_re_HealthyControl': 'age: 40 sex: male ECG date: 04/03/1997 Reason for admission: Healthy control',
-    'patient251_s0506_re_HealthyControl': 'age: 40 sex: male ECG date: 04/03/1997 Reason for admission: Healthy control',
-    'patient264_s0500_re_HealthyControl': 'age: 45 sex: male ECG date: 27/02/1997 Reason for admission: Healthy control',
-    'patient292_s0555_re_MyocardialInfarction': 'age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction',
-    'patient292_s0556_re_MyocardialInfarction': 'age: 66 sex: male ECG date: 03/06/1997 Reason for admission: Myocardial infarction',
+    'patient008_s0028lre_MyocardialInfarction': _("age") + ": 60 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 30/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient008_s0037lre_MyocardialInfarction': _("age") + ": 60 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 06/11/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient008_s0068lre_MyocardialInfarction': _("age") + ": 60 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 05/12/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient037_s0112lre_MyocardialInfarction': _("age") + ": 50 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 24/01/1991 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient037_s0120lre_MyocardialInfarction': _("age") + ": 50 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 30/01/1991 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient104_s0306lre_HealthyControl': _("age") + ": 58 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 13/07/1992 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient159_s0390lre_Hypertrophy': _("age") + ": 73 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/01/1993 " + _("Reason for admission") + ": " + _("Hypertrophy"), 
+    'patient180_s0374lre_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 26/11/1992 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0475_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 19/12/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0476_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 19/12/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0477_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 19/12/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0490_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 18/02/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0545_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/02/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient248_s0481_re_HealthyControl': _("age") + ": 64 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/02/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient251_s0486_re_HealthyControl': _("age") + ": 40 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 21/02/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient251_s0503_re_HealthyControl': _("age") + ": 40 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 04/03/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient251_s0506_re_HealthyControl': _("age") + ": 40 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 04/03/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient264_s0500_re_HealthyControl': _("age") + ": 45 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 27/02/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient292_s0555_re_MyocardialInfarction': _("age") + ": 66 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 03/06/1997 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient292_s0556_re_MyocardialInfarction': _("age") + ": 66 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 03/06/1997 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     }
 
 def listFiles(dl=False):
     
     res = glob.glob(EKGIMPDIR + "*.csv", recursive=False)
+    startidx = len(EKGIMPDIR)
     res = sorted(res)
     ar = []
 
     for file in res:
-        fname = file[4:-4].strip()
+        fname = file[startidx:-4].strip()
 #        fname = file[8:-4].strip()
         if dl == False:  
             ar.append(fname)
@@ -660,6 +605,8 @@ def listFiles(dl=False):
 
     return ar           
 
+def on_dist():
+    st.session_state.PQRSTaveragedist = 0    
 def on_change():
 #    print("ON CHAGE")
 #    st.session_state.PQRSTinit = False
@@ -692,7 +639,7 @@ def main():
         pause_sel = st.radio(_(" "), ("Pause", "Run"), key = "itao_pause", horizontal=True, index=0)
         rate_sel = st.number_input(_("Sample rate"), on_change=on_rate, value=1000, placeholder=_("Sample rate"), min_value=100, max_value=3000, step=100) 
         dist_sel = st.number_input(_("Distance between navel and fossa jugularis"), value=41.0, placeholder=_("Distance between navel and fossa jugularis"), 
-                                   on_change=on_change, min_value=5.0, max_value=100.0, step=0.1) 
+                                   on_change=on_dist, min_value=5.0, max_value=100.0, step=0.1) 
     with st.container(horizontal=True, horizontal_alignment="left"):
 #        alg_sel =  'manikandan2012' # 'neurokit' 
         alg_sel = st.selectbox(label=_("Algorithm"), on_change=on_data, options=algorithms, key="itao_algs", index=10)    

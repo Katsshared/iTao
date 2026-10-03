@@ -196,18 +196,18 @@ Further extension of life of man after death leads him in the realms of Thrones,
     
 The physical form of man allows him to have the ‘I’-consciousness on the Earth. All hierarchies of consciousness which are manifested in it are manifested in configurations of stars, planets, animals, plants and minerals too. Physical form of modern man is only one of all possible forms in which man can have the ‘I’-consciousness. All possibilities of manifestation of such forms are in his individuality. In antiquity the connection of individuality with the form of manifestation of man on the Earth was designated in form of cosmic man inscribed in the animal circle - Zodiac. Each part of human form was drawn to the corresponding constellation of animal circle from which acted Thrones, Cherubims and Seraphims. Thus, one has giant cosmic man from whom every single man has got his physical form.
 
-1. Head (♈Aries, Ram)
-2. Neck (♉Taurus, Bull)
-3. Arms (♊Gemini, Twins)
-4. Breast (♋Cancer, Crab)
-5. Heart (♌Leo, Lion)
-6. Stomach (♍Virgo, Maiden)
-7. Pelvic gridle (♎Libra, Scales)
-8. Genitals (♏Scorpio, Scorpion, Eagle)
-9. Thighs (♐Sagiitarius, Archer)
-10. Knees (♈Capricon, Sea-Goat)
-11. Low legs (♒Aquarius, Water-Bearer, Man)
-12. Feet (♓Pisces, Fish)
+1. Head (♈Aries, Ram) - the sense for the ‘I’ of another person
+2. Neck (♉Taurus, Bull) -  the sense for apprehending thoughts
+3. Arms (♊Gemini, Twins) -  the sense for perceiving words
+4. Breast (♋Cancer, Crab) -  the sense of hearing
+5. Heart (♌Leo, Lion) -  the sense of warmth
+6. Stomach (♍Virgo, Maiden) -  the sense of  sight
+7. Pelvic gridle (♎Libra, Scales) -  the sense of taste
+8. Genitals (♏Scorpio, Scorpion, Eagle) -  the sense of smell
+9. Thighs (♐Sagiitarius, Archer) -  the sense of balance
+10. Knees (♈Capricon, Sea-Goat) -  the sense of movement
+11. Low legs (♒Aquarius, Water-Bearer, Man) -  the sense of life
+12. Feet (♓Pisces, Fish) -  the sense of touch
 
 Which form of manifestation modern man has, depends on his level of consciousness, and in the future, with the alteration of his consciousness, the form of his manifestation will change as well. In order man could have the form of physical body and to be conscious of physical space and time, interaction of all hierarchies of consciousness is necessary. The highest level of consciousness among the hierarchies, have Seraphims, Cherubims and Thrones. Above their consciousness there is level of consciousness of Trinity which is designated as the One, Two and Three and it is where plan of the development of the world structure comes from.
 
