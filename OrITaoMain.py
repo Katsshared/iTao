@@ -85,7 +85,7 @@ def listPngs():
             os.unlink(file)
 #            print("UNLINK", file)          
 
-@st.fragment(run_every=30, key="delFig", parallel=True)
+@st.fragment(run_every=30, parallel=True)
 def delFig():
     listPngs()
     
