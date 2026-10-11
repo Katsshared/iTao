@@ -20,7 +20,8 @@ localizator = gettext.translation('messages', localedir='locales', languages=[st
 localizator.install() 
 _ = localizator.gettext 
 
-FIGPNGFILENAME = "images/fig.png"
+FIGPNGDIR = "images/"
+FIGPNGFILENAME = FIGPNGDIR+st.session_state.PQRSTfig # "images/fig.png"
 EKGIMPDIR = "imp/"
 #EKGIMPDIR = "ekg/imp/"
 BLOODFACTOR = 18.0
@@ -28,7 +29,10 @@ BLOODFACTOR = 18.0
 en_pqrst = _('''
 The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
 The patients data were taken from PTB Diagnostic ECG Database (https://www.physionet.org/content/ptbdb/1.0.0/).
-ECGs were recorded at sampling rate 1000 Hz. The application has the following options:
+ECGs were recorded at sampling rate 1000 Hz. The PTB database records 15 simultaneously measured signals—12 conventional leads 
+plus Frank X/Y/Z — and uses 1000 samples/sec with 16-bit resolution.
+
+The application has the following options:
 
 PQRST
                                                                                                                                                                                 
@@ -39,7 +43,7 @@ It allows to see, that any change of one part of PQRST peak leads to the change 
 
 BLOOD
                                                                                                                                                                                 
-The energy of blood makes the heart beat. It is several times more than the total energy of one beat. The energy of blood is shown as Cassini oval.
+The energy of blood makes the heart pulse. It is several times more than the total energy of one beat. The energy of blood is shown as Cassini oval.
 If the form of curve has a form of two separated ovals, this could indicate an illness.
 The illness tendency is displayed in percent.
 The distance between navel and fossa jugularis is neсesary for calculation of oval.
@@ -55,6 +59,9 @@ de_pqrst = _('''
 Die auf dem Paket „neurokit2“ basierende Anwendung veranschaulicht das Verhalten des PQRST-Komplexes als Ganzes.
 Die Patientendaten stammen aus der PTB Diagnostic ECG Database (https://www.physionet.org/content/ptbdb/1.0.0/).
 Die EKGs wurden mit einer Abtastrate von 1000 Hz aufgezeichnet.
+Die PTB-Datenbank erfasst 15 simultan gemessene Signale – 12 konventionelle Ableitungen sowie Frank-X/Y/Z – 
+und verwendet eine Abtastrate von 1000 Abtastwerten pro Sekunde bei einer Auflösung von 16 Bit.
+
 Die Anwendung hat folgende Optionen:
 
 PQRST
@@ -66,7 +73,8 @@ Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu ein
 
 BLOOD
 
-Die Energie des Blutes treibt den Herzschlag an. Sie ist ein Vielfaches der Gesamtenergie eines einzelnen Herzschlags. Die Energie des Blutes wird als Cassini-Oval dargestellt.
+Die Energie des Blutes lässt das Herz pulsieren. Sie ist ein Vielfaches der Gesamtenergie eines einzelnen Herzschlags. 
+Die Energie des Blutes wird als Cassini-Oval dargestellt.
 Wenn die Kurve die Form zweier getrennter Ovale aufweist, könnte dies auf eine Erkrankung hinweisen.
 Die Krankheitstendenz wird in Prozent angegeben.
 Der Abstand zwischen Bauchnabel und Fossa jugularis ist für die Berechnung des Ovals erforderlich.
@@ -81,7 +89,10 @@ Die üblichen EKG-Signale werden angezeigt.
 ru_pqrst = _('''
 Приложение, разработанное на основе пакета neurokit2, демонстрирует поведение комплекса PQRST в целом.
 Данные пациентов были взяты из диагностической базы данных ЭКГ PTB (https://www.physionet.org/content/ptbdb/1.0.0/).
-Запись ЭКГ производилась с частотой дискретизации 1000 Гц.
+Запись ЭКГ производилась с частотой дискретизации 1000 Гц. В базе данных PTB регистрируются 15 одновременно измеряемых сигналов — 12 стандартных отведений 
+плюс отведения X, Y и Z по методу Франка; 
+частота дискретизации составляет 1000 отсчетов в секунду при 16-битном разрешении.
+
 Приложение имеет следующие опции:
 
 PQRST
@@ -93,7 +104,8 @@ PQRST
 
 BLOOD
 
-Энергия крови обеспечивает биение сердца. Она в несколько раз превышает суммарную энергию одного сердечного сокращения. Энергия крови визуализируется в виде овала Кассини.
+Энергия крови заставляет сердце пульсировать. Она в несколько раз превышает суммарную энергию одного сердечного сокращения. 
+Энергия крови визуализируется в виде овала Кассини.
 Если кривая имеет форму двух разделенных овалов, это может указывать на заболевание.
 Тенденция к заболеванию покзываается в процентах.
 Расстояние между пупком и яремной ямкой необходимо для расчета овала.
@@ -109,8 +121,40 @@ pqrst = {"en":en_pqrst, "de":de_pqrst, "ru":ru_pqrst, }
 
 st.title(_("PQRST"))
 
+def nextNumber():
+    res = glob.glob(FIGPNGDIR + "fig*.png", recursive=False)
+    res = sorted(res)
+
+    prevcnt = 0
+    for file in res:
+        
+        if file == "images/fig.png":
+            continue
+        
+        nextcnt = int(file[10:-4])
+        if prevcnt == 0:
+            if nextcnt > 1:
+                return prevcnt + 1
+            prevcnt = nextcnt
+
+
+        if prevcnt + 1 < nextcnt:
+            return prevcnt + 1
+        
+    return prevcnt + 1
+    
+
+def figNumber():
+    import shutil      
+   
+    fignumber = nextNumber()
+    st.session_state.PQRSTfig = "fig"+str(fignumber)+".png"
+    
+    shutil.copyfile(FIGPNGDIR+"fig.png", FIGPNGDIR+"fig"+str(fignumber)+".png")
+
 if "PQRSTidx" not in st.session_state:
     st.session_state.PQRSTidx = 0
+    figNumber()
 if "PQRSTsigidx" not in st.session_state:
     st.session_state.PQRSTsigidx = 0
 if "PQRSTpauseidx" not in st.session_state:
@@ -213,6 +257,21 @@ def zero_NaN(peaks, val=0):
         if math.isnan(peaks[x]) == True:
             peaks[x] = val
 
+def getSession():
+    from streamlit.runtime import get_instance
+    from streamlit.runtime.scriptrunner import get_script_run_ctx
+    
+    
+#    runtime = get_instance()
+    session_id = get_script_run_ctx().session_id
+#    session_info = runtime._session_mgr.get_session_info(session_id)
+#    if session_info is None:
+#        raise RuntimeError("Couldn't get your Streamlit Session object.")
+    print("SESSION ID", session_id)
+#    st.write(session_info.session)
+    st.write(session_id)
+#    return session_info.session
+
 def saveFig(): 
     plt.savefig(FIGPNGFILENAME, format="png")
 
@@ -291,7 +350,7 @@ def draw_image(pause, algorithm_name, data_name, samplerate):
     if st.session_state.PQRSTinit == False:
         updateComplex(st.session_state.itaor0, st.session_state.itaor1, st.session_state.itaor2, 
                           st.session_state.itaor3, st.session_state.itaor4, st.session_state.itaor5)
-        saveFig()      
+        saveFig()
         
 
 def readData(data_name, csv=True):
@@ -679,7 +738,7 @@ def main():
       
     st.write(pqrst[st.session_state.itaolang])
 
-def imp_main(): 
+def imp_main():      
     uploaded_file = st.file_uploader(label=" ", key="itao_imp", type="csv")
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)

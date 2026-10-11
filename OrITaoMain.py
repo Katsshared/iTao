@@ -29,6 +29,9 @@ import streamlit as st
 from streamlit_image_coordinates import streamlit_image_coordinates
 import gettext
 
+import glob
+import os
+
 langs = ['en ' + "🇬🇧", 'de ' + "🇩🇪", 'ru ' + "🇷🇺",]
 
 with st.sidebar:
@@ -42,6 +45,9 @@ _ = localizator.gettext
 
 #st.write("道")
 
+if "PQRSTfig" not in st.session_state:
+    st.session_state.PQRSTfig = "fig.png"
+
 @st.dialog("道 iTao", dismissible=True, on_dismiss="rerun")
 def on_tao():
 #    st.image("images/TaoChina.png")
@@ -53,6 +59,36 @@ def on_tao():
 with st.sidebar:
     streamlit_image_coordinates(source="images/TaoChina.png", on_click=on_tao)    
 
+FIGPNGDIR = "images/"
+
+def listPngs():
+    # https://www.pythonmorsels.com/datetime-arithmetic/    
+    from datetime import datetime
+    from datetime import timedelta
+    
+    res = glob.glob(FIGPNGDIR + "fig*.png", recursive=False)
+    res = sorted(res, reverse=True)
+
+#    figNumber()
+
+    for file in res:
+        c_timestamp = os.path.getctime(file)
+        c_datestamp = datetime.fromtimestamp(c_timestamp)
+#        minutes = timedelta(minutes=1)
+        hours = timedelta(hours=12)
+#        days = timedelta(days=7)
+        
+        if file == "images/fig.png" or file == FIGPNGDIR+st.session_state.PQRSTfig:
+            continue
+        
+        if datetime.now() - hours > c_datestamp:
+            os.unlink(file)
+#            print("UNLINK", file)          
+
+@st.fragment(run_every=30, key="delFig", parallel=True)
+def delFig():
+    listPngs()
+    
 # ✉️∞️♾️☯☯️⏳道 🌀  ♈♉♊♋♌♍♎♏♐♈♒♓        
 pg = st.navigation([
     st.Page("OrITao.py", title=_("I am Tao"), icon="☯️"),
@@ -70,7 +106,7 @@ pg.run()
 
     
 if __name__=='__main__':
-    pass
+    delFig()
 
 
 
