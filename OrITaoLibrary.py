@@ -1,19 +1,3 @@
-'''
-Created on 04.09.2026
-
-@author: cat
-
-https://github.com/hreikin/streamlit-uploads-library
-
-https://hreikin-streamlit-uploads-library-home-ar6h9h.streamlit.app/
-
-https://rsarchive.org/Volumes.html
-
-
-https://docs.kanaries.net/topics/Streamlit
-https://docs.kanaries.net/topics/Streamlit/streamlit-upload-file
-
-'''
 
 import streamlit as st
 #from streamlit_image_coordinates import streamlit_image_coordinates
@@ -28,19 +12,22 @@ st.title(_("Library"))
 en_books = {
     1:["Kat Salomon Spirit and Consciousness", f"kat-salomon-spirit-and-consciousness_en",],
     2:["Rudolf Steiner About Cabbala", f"RudolfSteinerAboutCabbala_en",],
+    3:["Kat Salomon ITao", f"KatSalomonITao_en",],
 }
-de_books = {    
+de_books = {     
     1:["Kat Salomon Der Geist und das Bewusstsein", f"kat-salomon-spirit-and-consciousness_de",],
     2:["Rudolf Steiner Über Die Kabbala", f"RudolfSteinerÜberDieKabbala_de",],
     3:["Rudolf Steiner Die Drei Wege Der Einweihung", f"RudolfSteinerDieDreiWegeDerEinweihung_de",],
-    4:["Rudolf Steiner, Emil Bock Das Johannes-Evangelium", f"RudolfSteinerEmilBockJohannesEvangelium_de",],
-    5:["Rudolf Steiner, Emil Bock Die Offenbarung des Johannes", f"RudolfSteinerEmilBockOffenbarungJohannes_de",],
+    4:["Rudolf Steiner Emil Bock Das Johannes-Evangelium", f"RudolfSteinerEmilBockJohannesEvangelium_de",],
+    5:["Rudolf Steiner Emil Bock Die Offenbarung des Johannes", f"RudolfSteinerEmilBockOffenbarungJohannes_de",],
+    6:["Kat Salomon ITao", f"KatSalomonITao_de",],
 }
 ru_books = {
     1:["Кэт Саломон Дух и Сознание", f"kat-salomon-spirit-and-consciousness_ru",],
     2:["Рудольф Штайнер О Каббале", f"РудольфШтайнерОКаббале_ru",],
     3:["Рудольф Штайнер Три Пути Посвящения", f"РудольфШтайнерТриПутиПосвящения_ru",],
-    4:["Рудольф Штайнер, Емиль Бок Евангелие Иоанна", f"РудольфШтайнерЕмильБокЕвангелиеИоанна_ru",],
+    4:["Рудольф Штайнер Емиль Бок Евангелие Иоанна", f"РудольфШтайнерЕмильБокЕвангелиеИоанна_ru",],
+    5:["Кэт Саломон ITao", f"KatSalomonITao_ru",],
 }
 
 books = {"en":en_books, "de":de_books, "ru":ru_books, }
