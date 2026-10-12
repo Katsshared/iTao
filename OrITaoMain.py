@@ -87,12 +87,13 @@ def listPngs():
 def delFig():
     listPngs()
     
-# ☯✉️∞️♾️☯☯️⏳道 🌀  ♈♉♊♋♌♍♎♏♐♈♒♓        
+# ☯✉️∞️♾️☯☯️⏳道 🌀 🦿 ♈♉♊♋♌♍♎♏♐♈♒♓        
 pg = st.navigation([
     st.Page("OrITao.py", title=_("I am Tao"), icon="☯️"),
     st.Page("OrITaoInvolution.py", title=_("Involution"), icon="🌀"),
     st.Page("OrITaoEvolution.py", title=_("Evolution"), icon="☯"),
     st.Page("OrITaoPath.py", title=_("Path"), icon="❤️"),
+    st.Page("OrITaoScience.py", title=_("Science"), icon="⚛️"),
     st.Page("OrITaoExperiment.py", title=_("Cavendish-Experiment"), icon="⚖️"),
     st.Page("OrITaoEarth.py", title=_("Earth"), icon="🌎"),
     st.Page("OrITaoPQRST.py", title=_("PQRST"), icon="♾️"),
