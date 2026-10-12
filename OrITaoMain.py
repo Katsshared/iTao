@@ -69,8 +69,6 @@ def listPngs():
     res = glob.glob(FIGPNGDIR + "fig*.png", recursive=False)
     res = sorted(res, reverse=True)
 
-#    figNumber()
-
     for file in res:
         c_timestamp = os.path.getctime(file)
         c_datestamp = datetime.fromtimestamp(c_timestamp)
@@ -89,7 +87,7 @@ def listPngs():
 def delFig():
     listPngs()
     
-# ✉️∞️♾️☯☯️⏳道 🌀  ♈♉♊♋♌♍♎♏♐♈♒♓        
+# ☯✉️∞️♾️☯☯️⏳道 🌀  ♈♉♊♋♌♍♎♏♐♈♒♓        
 pg = st.navigation([
     st.Page("OrITao.py", title=_("I am Tao"), icon="☯️"),
     st.Page("OrITaoInvolution.py", title=_("Involution"), icon="🌀"),

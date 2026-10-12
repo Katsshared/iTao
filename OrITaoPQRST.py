@@ -135,22 +135,29 @@ def nextNumber():
         if prevcnt == 0:
             if nextcnt > 1:
                 return prevcnt + 1
+            
             prevcnt = nextcnt
-
+            continue
 
         if prevcnt + 1 < nextcnt:
             return prevcnt + 1
         
+        prevcnt += 1
+     
     return prevcnt + 1
+
     
 
 def figNumber():
     import shutil      
    
     fignumber = nextNumber()
-    st.session_state.PQRSTfig = "fig"+str(fignumber)+".png"
-    
-    shutil.copyfile(FIGPNGDIR+"fig.png", FIGPNGDIR+"fig"+str(fignumber)+".png")
+    print("FIGNUMBER", fignumber)
+    srcname  = FIGPNGDIR+"fig.png"
+    dstname = FIGPNGDIR+"fig"+str(fignumber)+".png"
+    with open(srcname, "rb") as src, open(dstname, "xb") as dst:
+        shutil.copyfileobj(src, dst)
+        st.session_state.PQRSTfig = "fig"+str(fignumber)+".png"
 
 if "PQRSTidx" not in st.session_state:
     st.session_state.PQRSTidx = 0
