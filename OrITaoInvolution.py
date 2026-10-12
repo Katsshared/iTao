@@ -199,7 +199,7 @@ Die freie Wahl der Menschheit im Involutionszustand führt zum weiteren Bewussts
 
 ru_invol = _('''                                                                                                                                                                                
 Тао породило Один.
-Одно породило Два.
+Один породило Два.
 Два породило Три.
 А Три породило десять тысяч вещей. (Дао Дэ Цзин 道德經 42)
 
