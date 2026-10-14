@@ -333,6 +333,7 @@ st.title("道 iTao ")
 if __name__=='__main__':
 #    tab1, tab2 = st.tabs([_("World structure"), _("Involution"),])
 #    with tab1:
+    st.image("images/fig.png")
     st.write(itao[st.session_state.itaolang])
 #    with tab2:
 #        st.image("images/tao.png")
