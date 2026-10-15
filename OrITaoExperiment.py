@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_image_coordinates import streamlit_image_coordinates
+
 import gettext
 
 localizator = gettext.translation('messages', localedir='locales', languages=[st.session_state.itaolang])
@@ -73,7 +75,8 @@ ru_caexp = _('''
 
 st.title(_("Cavendish-Experiment"))
 
-st.image("torsion.png")
+#st.image("torsion.png")
+streamlit_image_coordinates(source="images/torsion.png", key="exp_01")
 #st.image("images/torsion.png")
 
 caexp = {"en":en_caexp, "de":de_caexp, "ru":ru_caexp, }
