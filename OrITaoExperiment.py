@@ -73,12 +73,15 @@ ru_caexp = _('''
 
 st.title(_("Cavendish-Experiment"))
 
-st.image("images/torsion.png")
-#st.image("images/Cavendish 2.png")
+st.image("torsion.png")
+#st.image("images/torsion.png")
 
 caexp = {"en":en_caexp, "de":de_caexp, "ru":ru_caexp, }
 
 
 st.write(caexp[st.session_state.itaolang])
 
-st.video("images/Cavendish_english_subtitles_burned.mp4")
+st.video("Cavendish_english_subtitles_burned.mp4")
+#st.video("images/Cavendish_english_subtitles_burned.mp4")
+
+
