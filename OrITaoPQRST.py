@@ -1,6 +1,6 @@
 
 import streamlit as st
-#from streamlit_image_coordinates import streamlit_image_coordinates
+from streamlit_image_coordinates import streamlit_image_coordinates
 
 import numpy as np
 import math
@@ -334,7 +334,8 @@ def draw_image(pause, algorithm_name, data_name, samplerate):
     if pause == 0:
         return None
     
-    st.image(FIGPNGFILENAME)
+    streamlit_image_coordinates(FIGPNGFILENAME, key="PQRST_01")
+#    st.image(FIGPNGFILENAME)
     if st.session_state.PQRSTinit == True:
 #        print("DO INIT TRUE")
         st.session_state.PQRSTidx = 0

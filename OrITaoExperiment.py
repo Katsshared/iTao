@@ -75,7 +75,6 @@ ru_caexp = _('''
 
 st.title(_("Cavendish-Experiment"))
 
-#st.image("torsion.png")
 streamlit_image_coordinates(source="images/torsion.png", key="exp_01")
 #st.image("images/torsion.png")
 
@@ -84,7 +83,6 @@ caexp = {"en":en_caexp, "de":de_caexp, "ru":ru_caexp, }
 
 st.write(caexp[st.session_state.itaolang])
 
-st.video("Cavendish_english_subtitles_burned.mp4")
-#st.video("images/Cavendish_english_subtitles_burned.mp4")
+st.video("images/Cavendish_english_subtitles_burned.mp4")
 
 
