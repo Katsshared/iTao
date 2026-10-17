@@ -18,10 +18,84 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+msgid "I am Tao"
+msgstr "Я есть Тао"
+
+msgid "Library"
+msgstr "Библиотека"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "Involution"
+msgstr "Инволюция"
+
+msgid "Evolution"
+msgstr "Эволюция"
+
+msgid "Path"
+msgstr "Путь"
+
+msgid "Science and Reality"
+msgstr "Наука и реальность"
+
+msgid "Cavendish-Experiment"
+msgstr "Эксперимент Кавендиша"
+
+msgid "Earth"
+msgstr "Земля"
+
+msgid "PQRST"
+msgstr "PQRST"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Run"
+msgstr "Запустить"
+
+msgid "Algorithm"
+msgstr "Aлгоритм"
+
+msgid "Data"
+msgstr "Данные"
+
+msgid "Data name"
+msgstr "Название данных"
+
+msgid "Rate"
+msgstr "Частота"
+
+msgid "Sample rate"
+msgstr "Частота дискретизации"
+
+msgid "Distance between navel and fossa jugularis"
+msgstr "Расстояние между пупком и яремной ямкой"
+
+msgid "Plot"
+msgstr "Чертеж"
+
+msgid "Success"
+msgstr "Успех"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Patient"
+msgstr "Пациент"
+
+msgid "Upload"
+msgstr "Загрузить"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "Import"
+msgstr "Импорт"
+
 msgid "Contact"
 msgstr "Контакт"
 
-#: OrGmailContact.py:45
 msgid "Contact Form"
 msgstr "Форма обратной связи"
 
@@ -61,7 +135,6 @@ msgstr "Послать"
 msgid "Email sent successfully!"
 msgstr "Письмо успешно отправлено!"
 
-msgid "I am Tao"
-msgstr "Я есть Тао"
+
 
 

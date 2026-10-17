@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-11 15:28+0200\n"
-"PO-Revision-Date: 2026-07-11 15:28+0200\n"
+"POT-Creation-Date: 2026-10-16 14:46+0200\n"
+"PO-Revision-Date: 2026-10-16 14:46+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en_EN\n"
@@ -16,6 +16,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "I am Tao"
+msgstr "I am Tao"
+
+msgid "Library"
+msgstr "Library"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Involution"
+msgstr "Involution"
+
+msgid "Evolution"
+msgstr "Evolution"
+
+msgid "Path"
+msgstr "Path"
+
+msgid "Science and Reality"
+msgstr ""
+
+msgid "Cavendish-Experiment"
+msgstr "Cavendish-Experiment"
+
+msgid "Earth"
+msgstr "Earth"
+
+msgid "PQRST"
+msgstr "PQRST"
 
 msgid "Contact"
 msgstr "Contact"
@@ -59,5 +89,5 @@ msgstr "Send"
 msgid "Email sent successfully!"
 msgstr "Email sent successfully!"
 
-msgid "I am Tao"
-msgstr "I am Tao"
+#~ msgid "Science"
+#~ msgstr "Science"

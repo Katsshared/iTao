@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-11 15:28+0200\n"
+"POT-Creation-Date: 2026-10-16 14:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,49 +17,77 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Contact"
+msgid "I am Tao"
+msgstr "I am Tao"
+
+msgid "Library"
 msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Involution"
+msgstr ""
+
+msgid "Evolution"
+msgstr ""
+
+msgid "Path"
+msgstr ""
+
+msgid "Science and Reality"
+msgstr ""
+
+msgid "Cavendish-Experiment"
+msgstr ""
+
+msgid "Earth"
+msgstr ""
+
+msgid "PQRST"
+msgstr ""
+
+msgid "Contact"
+msgstr "Contact"
 
 msgid "Contact Form"
-msgstr ""
+msgstr "Contact Form"
 
 msgid "Email Form"
-msgstr ""
+msgstr "Email Form"
 
 msgid "Subject"
-msgstr ""
+msgstr "Subject"
 
 msgid "Please enter subject of your mail"
-msgstr ""
+msgstr "Please enter subject of your mail"
 
 msgid "Full Name"
-msgstr ""
+msgstr "Full Name"
 
 msgid "Please enter your full name"
-msgstr ""
+msgstr "Please enter your full name"
 
 msgid "Email Address"
-msgstr ""
+msgstr "Email Address"
 
 msgid "Please enter your email address"
-msgstr ""
+msgstr "Please enter your email address"
 
 msgid "Email Text"
-msgstr ""
+msgstr "Email Text"
 
 msgid "Please enter your text here"
-msgstr ""
+msgstr "Please enter your text here"
 
 msgid "Attachment"
-msgstr ""
+msgstr "Attachment"
 
 msgid "Send"
-msgstr ""
+msgstr "Send"
 
 msgid "Email sent successfully!"
-msgstr ""
+msgstr "Email sent successfully!"
 
-msgid "I am Tao"
-msgstr ""
 
 

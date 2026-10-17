@@ -21,6 +21,81 @@ msgstr ""
 msgid "Contact"
 msgstr "Kontakt"
 
+msgid "I am Tao"
+msgstr "Ich bin Tao"
+
+msgid "Library"
+msgstr "Bibliothek"
+
+msgid "Download"
+msgstr "Herunterladen"
+
+msgid "Involution"
+msgstr "Involution"
+
+msgid "Evolution"
+msgstr "Evolution"
+
+msgid "Path"
+msgstr "Pfad"
+
+msgid "Science and Reality"
+msgstr "Wissenschaft und Realität"
+
+msgid "Cavendish-Experiment"
+msgstr "Cavendish-Experiment"
+
+msgid "Earth"
+msgstr "Erde"
+
+msgid "PQRST"
+msgstr "PQRST"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Run"
+msgstr "Ausführen"
+
+msgid "Algorithm"
+msgstr "Algorithmus"
+
+msgid "Data"
+msgstr "Daten"
+
+msgid "Data name"
+msgstr "Datenname"
+
+msgid "Rate"
+msgstr "Rate"
+
+msgid "Sample rate"
+msgstr "Abtastrate"
+
+msgid "Distance between navel and fossa jugularis"
+msgstr "Abstand zwischen Bauchnabel und Fossa jugularis"
+
+msgid "Plot"
+msgstr "Zeichnung"
+
+msgid "Success"
+msgstr "Erfolg"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Patient"
+msgstr "Patient"
+
+msgid "Upload"
+msgstr "Hochladen"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Import"
+msgstr "Import"
+
 msgid "Contact Form"
 msgstr "Kontaktformular"
 
@@ -60,7 +135,5 @@ msgstr "Senden"
 msgid "Email sent successfully!"
 msgstr "E-Mail erfolgreich versendet!"
 
-msgid "I am Tao"
-msgstr "Ich bin Tao"
 
 
