@@ -152,7 +152,7 @@ def figNumber():
     import shutil      
    
     fignumber = nextNumber()
-    print("FIGNUMBER", fignumber)
+#    print("FIGNUMBER", fignumber)
     srcname  = FIGPNGDIR+"fig.png"
     dstname = FIGPNGDIR+"fig"+str(fignumber)+".png"
     with open(srcname, "rb") as src, open(dstname, "xb") as dst:
@@ -703,7 +703,7 @@ def main():
 #                  'bio_resting_8min_100hz', 
 #                  'bio_resting_5min_100hz')
     with st.container(horizontal=True, horizontal_alignment="left"):
-        pause_sel = st.radio(_(" "), ("Pause", "Run"), key = "itao_pause", horizontal=True, index=0)
+        pause_sel = st.radio(_(" "), (_("Pause"), _("Run")), key = "itao_pause", horizontal=True, index=0)
         rate_sel = st.number_input(_("Sample rate"), on_change=on_rate, value=1000, placeholder=_("Sample rate"), min_value=100, max_value=3000, step=100) 
         dist_sel = st.number_input(_("Distance between navel and fossa jugularis"), value=41.0, placeholder=_("Distance between navel and fossa jugularis"), 
                                    on_change=on_dist, min_value=5.0, max_value=100.0, step=0.1) 
@@ -730,24 +730,24 @@ def main():
             st.session_state.PQRSTdist = dist_sel
 #            st.session_state.PQRSTaveragedist = 0
 
-        msg(_("Run") + " " + _("algorithm") + " " +  alg_sel + ", " + _("Data") + " " + data_sel + ", " + _("Rate") + " " + str(rate_sel) + ", " + sig_sel)
+        msg(_("Run") + " " + _("Algorithm") + " " +  alg_sel + ", " + _("Data") + " " + data_sel + ", " + _("Rate") + " " + str(rate_sel) + ", " + sig_sel)
         if data_sel in data_names.keys():
-            msg('Patient ' + data_names[data_sel])
+            msg(_("Patient") + " " + data_names[data_sel])
 
         draw_image(st.session_state.PQRSTpauseidx, alg_sel, data_sel, rate_sel)
         
         return None
         
-    if pause_sel == "Pause":
+    if pause_sel == _("Pause"):
         st.session_state.PQRSTpauseidx = 0
-    elif pause_sel == "Run":
+    elif pause_sel == _("Run"):
         st.session_state.PQRSTpauseidx = 1
         run_algorithm()
       
     st.write(pqrst[st.session_state.itaolang])
 
 def imp_main():      
-    uploaded_file = st.file_uploader(label=" ", key="itao_imp", type="csv")
+    uploaded_file = st.file_uploader(label=_("Upload"), key="itao_imp", type="csv")
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
         df.to_csv(EKGIMPDIR+uploaded_file.name, index=False)
@@ -766,7 +766,7 @@ def exp_main():
         csv = df.to_csv().encode("utf-8")
         
         st.download_button(
-            label=_("Download CSV"),
+            label=_("Download") + " CSV",
             data=csv,
             file_name=dname+".csv",
             mime="text/csv",

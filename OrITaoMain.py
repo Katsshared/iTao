@@ -14,7 +14,7 @@ msginit -l de_DE.UTF8 -o locales/de/LC_MESSAGES/messages.po -i locales/messages.
 msginit -l ru_RU.UTF8 -o locales/ru/LC_MESSAGES/messages.po -i locales/messages.pot --no-translator
 
 #generate .pot
-xgettext -d messages -o locales/messages.pot OrITao.py --from-code UTF-8
+xgettext -d messages -o locales/messages.pot OrITaoMain.py --from-code UTF-8
 
 #setup gettext
 https://gnuwin32.sourceforge.net/packages/gettext.htm
@@ -93,7 +93,7 @@ pg = st.navigation([
     st.Page("OrITaoInvolution.py", title=_("Involution"), icon="🌀"),
     st.Page("OrITaoEvolution.py", title=_("Evolution"), icon="☯"),
     st.Page("OrITaoPath.py", title=_("Path"), icon="❤️"),
-    st.Page("OrITaoScience.py", title=_("Science"), icon="⚛️"),
+    st.Page("OrITaoScience.py", title=_("Science and Reality"), icon="⚛️"),
     st.Page("OrITaoExperiment.py", title=_("Cavendish-Experiment"), icon="⚖️"),
     st.Page("OrITaoEarth.py", title=_("Earth"), icon="🌎"),
     st.Page("OrITaoPQRST.py", title=_("PQRST"), icon="♾️"),
