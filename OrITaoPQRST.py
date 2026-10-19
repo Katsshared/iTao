@@ -689,10 +689,13 @@ def on_rate():
 
     
 def main(): 
-    algorithms = ('christov2004', 'elgendi2010', 'engzeemod2012', 
+    algorithms = ('christov2004', 'elgendi2010', 
+#                  'engzeemod2012', 
                   'gamboa2008', 'hamilton2002', 'kalidas2017', 
-                  'koka2022', 'manikandan2012', 'martinez2004', 
-                  'nabian20', 'neurokit',  'pantompkins1985', 
+#                  'koka2022', 
+                  'manikandan2012', 'martinez2004', 
+#                  'nabian20', 
+                  'neurokit',  'pantompkins1985', 
                   'promac', 'rodrigues2021', 'zong2003')
     
     ekg_datas = listFiles()
