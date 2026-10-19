@@ -712,7 +712,7 @@ def main():
                                    on_change=on_dist, min_value=5.0, max_value=100.0, step=0.1) 
     with st.container(horizontal=True, horizontal_alignment="left"):
 #        alg_sel =  'manikandan2012' # 'neurokit' 
-        alg_sel = st.selectbox(label=_("Algorithm"), on_change=on_data, options=algorithms, key="itao_algs", index=10)    
+        alg_sel = st.selectbox(label=_("Algorithm"), on_change=on_data, options=algorithms, key="itao_algs", index=7)    
         data_sel = st.selectbox(label=_("Data name"), on_change=on_data, options=ekg_datas, key="itao_datas")
         sig_sel = st.radio(_("Plot"), ("PQRST", "BLOOD", "SIGNAL"), on_change=on_change, key = "itao_sig", horizontal=True, index=0)
     if sig_sel== "PQRST":
