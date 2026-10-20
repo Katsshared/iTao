@@ -83,7 +83,7 @@ caexp = {"en":en_caexp, "de":de_caexp, "ru":ru_caexp, }
 
 st.write(caexp[st.session_state.itaolang])
 
-st.video("https://www.youtube.com/watch?v=xA2Xn7nfKds")
-#st.video("images/Cavendish_english_subtitles_burned.mp4")
+#st.video("https://www.youtube.com/watch?v=xA2Xn7nfKds")
+st.video("images/Cavendish_english_subtitles_burned.mp4")
 
 
