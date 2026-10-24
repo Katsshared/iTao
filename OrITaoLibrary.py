@@ -12,7 +12,8 @@ st.title(_("Library"))
 en_books = {
     1:["Kat Salomon Spirit and Consciousness", f"kat-salomon-spirit-and-consciousness_en",],
     2:["Rudolf Steiner About Cabbala", f"RudolfSteinerAboutCabbala_en",],
-    3:["Kat Salomon ITao", f"KatSalomonITao_en",],
+    3:["Rudolf Steiner Emil Bock Gospel of John", f"RudolfSteinerEmilBockJohnGospel_en",],
+    4:["Kat Salomon ITao", f"KatSalomonITao_en",],
 }
 de_books = {     
     1:["Kat Salomon Der Geist und das Bewusstsein", f"kat-salomon-spirit-and-consciousness_de",],
