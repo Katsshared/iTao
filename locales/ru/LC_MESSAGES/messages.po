@@ -135,6 +135,36 @@ msgstr "Послать"
 msgid "Email sent successfully!"
 msgstr "Письмо успешно отправлено!"
 
+msgid "age"
+msgstr "Возраст"
+
+msgid "sex"
+msgstr "Пол"
+
+msgid "female"
+msgstr "Женщина"
+
+msgid "male"
+msgstr "Мужчина"
+
+msgid "ECG"
+msgstr "ЭКГ"
+
+msgid "date"
+msgstr "Дата"
+
+msgid "Reason for admission"
+msgstr "Причина поступления"
+
+msgid "Myocardial infarction"
+msgstr "Инфаркт миокарда"
+
+msgid "Healthy control"
+msgstr "Контроль здоровья"
+
+msgid "Hypertrophy"
+msgstr "Гипертрофия"
+
 
 
 

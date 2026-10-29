@@ -36,7 +36,7 @@ msgid "Path"
 msgstr "Path"
 
 msgid "Science and Reality"
-msgstr ""
+msgstr "Science and Reality"
 
 msgid "Cavendish-Experiment"
 msgstr "Cavendish-Experiment"
@@ -89,5 +89,32 @@ msgstr "Send"
 msgid "Email sent successfully!"
 msgstr "Email sent successfully!"
 
-#~ msgid "Science"
-#~ msgstr "Science"
+msgid "age"
+msgstr "age"
+
+msgid "sex"
+msgstr "sex"
+
+msgid "female"
+msgstr "female"
+
+msgid "male"
+msgstr "male"
+
+msgid "ECG"
+msgstr "ECG"
+
+msgid "date"
+msgstr "date"
+
+msgid "Reason for admission"
+msgstr "Reason for admission"
+
+msgid "Myocardial infarction"
+msgstr "Myocardial infarction"
+
+msgid "Healthy control"
+msgstr "Healthy control"
+
+msgid "Hypertrophy"
+msgstr "Hypertrophy"

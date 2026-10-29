@@ -135,5 +135,35 @@ msgstr "Senden"
 msgid "Email sent successfully!"
 msgstr "E-Mail erfolgreich versendet!"
 
+msgid "age"
+msgstr "Alter"
+
+msgid "sex"
+msgstr "Geschlecht"
+
+msgid "female"
+msgstr "Frau"
+
+msgid "male"
+msgstr "Mann"
+
+msgid "ECG"
+msgstr "EKG"
+
+msgid "date"
+msgstr "Datum"
+
+msgid "Reason for admission"
+msgstr "Aufnahmegrund"
+
+msgid "Myocardial infarction"
+msgstr "Myokardinfarkt"
+
+msgid "Healthy control"
+msgstr "Gesundheitskontrolle"
+
+msgid "Hypertrophy"
+msgstr "Hypertrophie"
+
 
 
