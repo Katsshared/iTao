@@ -110,7 +110,7 @@ ru_pqrst = _('''
 PQRST
                                                                                                                                                                                                                                                                                                                                                                  
 Вместо привычных пиков PQRST используются вертикальные полулемнискаты; высота полулемниската соответствует высоте стандартного пика PQRST. 
-Отображаются значения пиков PQRST и проценты пиков.  
+Отображаются значения пиков PQRST и проценты пиков. 
 Это позволяет наглядно увидеть, что изменение любой части пика PQRST влечет за собой изменение всего комплекса PQRST.
 
 SIGNAL
@@ -651,33 +651,33 @@ def update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     st.session_state.PQRSTidx += 1
 
 data_names = {
-    'patient001_s0010_re_MyocardialInfarction': _("age") + ": 81 " + _("sex") + ": " + _("female") + " " + _("ECG") + " " + _("date") + ": 01/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient001_s0014lre_MyocardialInfarction': _("age") + ": 81 " + _("sex") + ": " + _("female") + " " + _("ECG") + " " + _("date") + ": 17/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient001_s0016lre_MyocardialInfarction': _("age") + ": 81 " + _("sex") + ": " + _("female") + " " + _("ECG") + " " + _("date") + ": 18/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient007_s0026lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 29/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient007_s0029lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 31/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient007_s0038lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/11/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient007_s0078lre_MyocardialInfarction': _("age") + ": 70 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 17/12/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient008_s0028lre_MyocardialInfarction': _("age") + ": 60 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 30/10/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient008_s0037lre_MyocardialInfarction': _("age") + ": 60 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 06/11/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient008_s0068lre_MyocardialInfarction': _("age") + ": 60 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 05/12/1990 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient037_s0112lre_MyocardialInfarction': _("age") + ": 50 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 24/01/1991 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient037_s0120lre_MyocardialInfarction': _("age") + ": 50 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 30/01/1991 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient104_s0306lre_HealthyControl': _("age") + ": 58 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 13/07/1992 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient159_s0390lre_Hypertrophy': _("age") + ": 73 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/01/1993 " + _("Reason for admission") + ": " + _("Hypertrophy"), 
-    'patient180_s0374lre_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 26/11/1992 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient180_s0475_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 19/12/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient180_s0476_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 19/12/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient180_s0477_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 19/12/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient180_s0490_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 18/02/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient180_s0545_re_HealthyControl': _("age") + ": 37 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/02/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient248_s0481_re_HealthyControl': _("age") + ": 64 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 07/02/1996 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient251_s0486_re_HealthyControl': _("age") + ": 40 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 21/02/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient251_s0503_re_HealthyControl': _("age") + ": 40 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 04/03/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient251_s0506_re_HealthyControl': _("age") + ": 40 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 04/03/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient264_s0500_re_HealthyControl': _("age") + ": 45 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 27/02/1997 " + _("Reason for admission") + ": " + _("Healthy control"), 
-    'patient292_s0555_re_MyocardialInfarction': _("age") + ": 66 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 03/06/1997 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
-    'patient292_s0556_re_MyocardialInfarction': _("age") + ": 66 " + _("sex") + ": " + _("male") + " " + _("ECG") + " " + _("date") + ": 03/06/1997 " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient001_s0010_re_MyocardialInfarction': _("age") + ": 81, " + _("sex") + ": " + _("female") + ", " + _("ECG") + " " + _("date") + ": 01/10/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient001_s0014lre_MyocardialInfarction': _("age") + ": 81, " + _("sex") + ": " + _("female") + ", " + _("ECG") + " " + _("date") + ": 17/10/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient001_s0016lre_MyocardialInfarction': _("age") + ": 81, " + _("sex") + ": " + _("female") + ", " + _("ECG") + " " + _("date") + ": 18/10/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0026lre_MyocardialInfarction': _("age") + ": 70, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 29/10/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0029lre_MyocardialInfarction': _("age") + ": 70, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 31/10/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0038lre_MyocardialInfarction': _("age") + ": 70, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 07/11/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient007_s0078lre_MyocardialInfarction': _("age") + ": 70, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 17/12/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient008_s0028lre_MyocardialInfarction': _("age") + ": 60, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 30/10/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient008_s0037lre_MyocardialInfarction': _("age") + ": 60, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 06/11/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient008_s0068lre_MyocardialInfarction': _("age") + ": 60, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 05/12/1990, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient037_s0112lre_MyocardialInfarction': _("age") + ": 50, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 24/01/1991, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient037_s0120lre_MyocardialInfarction': _("age") + ": 50, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 30/01/1991, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient104_s0306lre_HealthyControl': _("age") + ": 58, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 13/07/1992, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient159_s0390lre_Hypertrophy': _("age") + ": 73, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 07/01/1993, " + _("Reason for admission") + ": " + _("Hypertrophy"), 
+    'patient180_s0374lre_HealthyControl': _("age") + ": 37, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 26/11/1992, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0475_re_HealthyControl': _("age") + ": 37, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 19/12/1996, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0476_re_HealthyControl': _("age") + ": 37, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 19/12/1996, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0477_re_HealthyControl': _("age") + ": 37, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 19/12/1996, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0490_re_HealthyControl': _("age") + ": 37, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 18/02/1997, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient180_s0545_re_HealthyControl': _("age") + ": 37, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 07/02/1996, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient248_s0481_re_HealthyControl': _("age") + ": 64, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 07/02/1996, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient251_s0486_re_HealthyControl': _("age") + ": 40, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 21/02/1997, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient251_s0503_re_HealthyControl': _("age") + ": 40, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 04/03/1997, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient251_s0506_re_HealthyControl': _("age") + ": 40, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 04/03/1997, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient264_s0500_re_HealthyControl': _("age") + ": 45, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 27/02/1997, " + _("Reason for admission") + ": " + _("Healthy control"), 
+    'patient292_s0555_re_MyocardialInfarction': _("age") + ": 66, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 03/06/1997, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
+    'patient292_s0556_re_MyocardialInfarction': _("age") + ": 66, " + _("sex") + ": " + _("male") + ", " + _("ECG") + " " + _("date") + ": 03/06/1997, " + _("Reason for admission") + ": " + _("Myocardial infarction"), 
     }
 
 def listFiles(dl=False):
