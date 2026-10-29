@@ -25,6 +25,9 @@ FIGPNGFILENAME = FIGPNGDIR+st.session_state.PQRSTfig # "images/fig.png"
 EKGIMPDIR = "imp/"
 #EKGIMPDIR = "ekg/imp/"
 BLOODFACTOR = 18.0
+#CALCA = 105.0
+#CALCA = 105.0
+CALCA = 92.0
 
 en_pqrst = _('''
 The application based on neurokit2 package demonstrates the behavior of the PQRST complex as a whole.
@@ -40,6 +43,13 @@ Instead of usual PQRST peaks, the vertical half-lemniscates are used.
 The height of half-lemniscate is equal to the height of usual PQRST peak.
 The values of the PQRST peaks and percentage of peaks are shown.
 It allows to see, that any change of one part of PQRST peak leads to the change of the whole PQRST complex.
+SIGNAL
+
+The usual ecg signals are shown.
+
+'''
+)
+en_blood = _('''
 
 BLOOD
                                                                                                                                                                                 
@@ -47,10 +57,6 @@ The energy of blood makes the heart pulse. It is several times more than the tot
 If the form of curve has a form of two separated ovals, this could indicate an illness.
 The illness tendency is displayed in percent.
 The distance between navel and fossa jugularis is neсesary for calculation of oval.
-
-SIGNAL
-
-The usual ecg signals are shown.
 
 '''
 )
@@ -71,6 +77,14 @@ Die Höhe der Halblemniskate entspricht dabei der Höhe der jeweiligen PQRST-Zac
 Angezeigt werden die Werte der PQRST-Zacken sowie Prozentsatz der Zacken. 
 Dies macht deutlich, dass jede Veränderung eines Teils einer PQRST-Zacke zu einer Veränderung des gesamten PQRST-Komplexes führt.
 
+SIGNAL
+
+Die üblichen EKG-Signale werden angezeigt.
+
+'''
+)
+de_blood = _('''
+
 BLOOD
 
 Die Energie des Blutes lässt das Herz pulsieren. Sie ist ein Vielfaches der Gesamtenergie eines einzelnen Herzschlags. 
@@ -79,12 +93,9 @@ Wenn die Kurve die Form zweier getrennter Ovale aufweist, könnte dies auf eine 
 Die Krankheitstendenz wird in Prozent angegeben.
 Der Abstand zwischen Bauchnabel und Fossa jugularis ist für die Berechnung des Ovals erforderlich.
 
-SIGNAL
-
-Die üblichen EKG-Signale werden angezeigt.
-
 '''
 )
+
 
 ru_pqrst = _('''
 Приложение, разработанное на основе пакета neurokit2, демонстрирует поведение комплекса PQRST в целом.
@@ -101,6 +112,13 @@ PQRST
 Отображаются значения пиков PQRST и проценты пиков.  
 Это позволяет наглядно увидеть, что изменение любой части пика PQRST влечет за собой изменение всего комплекса PQRST.
 
+СИГНАЛ
+
+Показаны стандартные сигналы ЭКГ.
+
+'''
+)
+ru_blood = _('''
 
 BLOOD
 
@@ -109,10 +127,6 @@ BLOOD
 Если кривая имеет форму двух разделенных овалов, это может указывать на заболевание.
 Тенденция к заболеванию покзываается в процентах.
 Расстояние между пупком и яремной ямкой необходимо для расчета овала.
-
-СИГНАЛ
-
-Показаны стандартные сигналы ЭКГ.
 
 '''
 )
@@ -296,12 +310,14 @@ def calcDist(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     minDist = 0
     maxDist = 0
     cnt = 0
-    a = st.session_state.PQRSTdist / 2
+#    a = st.session_state.PQRSTdist / 2
     cnta = 0
+    bloodc = 0
     for idx in range(0, minLen):
         total_sum = np.abs(unfiltered_ecg[p_peaks[idx]]) + np.abs(unfiltered_ecg[q_peaks[idx]]) + np.abs(unfiltered_ecg[r_peaks[idx]]) + np.abs(unfiltered_ecg[s_peaks[idx]]) + np.abs(unfiltered_ecg[t_peaks[idx]])
         bloodc =  (BLOODFACTOR * total_sum) # total energy of blood circulation
-    
+        a = calcA(bloodc, CALCA + st.session_state.PQRSTdist / 2)
+
 #        a = st.session_state.PQRSTdist / 2
 #    print("DIST", str(st.session_state.PQRSTdist))
         b = CassiniXY(bloodc, 0)
@@ -410,10 +426,10 @@ def updateComplex(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     if idx == 0:
 #        msg('Plotting PQRST')
         update_PQRST(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks)        
-    elif idx == 1:
+    elif idx == 2:
 #        msg('Plotting BLOOD')
         update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks)        
-    elif idx == 2:
+    elif idx == 1:
 #        msg('Plotting SIGNAL')
         update_SIGNAL(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks)        
 
@@ -481,6 +497,12 @@ def update_PQRST(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     
     st.session_state.PQRSTidx += 1
 
+def calcA(x, dist):
+    a = st.session_state.PQRSTdist / 2
+    b = a * (x / dist)
+    print("CALCA", b, "X", x, "DIST", dist)
+    return b
+
 def calcB(x, a):
     b = np.sqrt(np.abs(x**2 - a**2))
     return b
@@ -533,14 +555,17 @@ def update_BLOOD(unfiltered_ecg, p_peaks, q_peaks, r_peaks, s_peaks, t_peaks):
     clrPQRST = 'white'
     clrBLOOD = 'red'
     
-    ls='--'
+    ls='-' #'--'
     if idx % 4 == 0:
         ls='-'
     
-    a = st.session_state.PQRSTdist / 2
+#    a = st.session_state.PQRSTdist / 2
+#    a *= np.sqrt(2)
 #    print("DIST", str(st.session_state.PQRSTdist))
+#    b = calcB(bloodc/np.sqrt(2), a)
+    a = calcA(bloodc, CALCA + st.session_state.PQRSTdist / 2)
     b = calcB(bloodc, a)
-#    print(str(idx) + ' a='+ str(a)  + ' b='+ str(b))
+    print(str(idx) + ' a='+ str(a)  + ' b='+ str(b))
     CassiniSteinerShort(a, b, clr=clrBLOOD, vertical=True, half=False, upper=True, linestyle=ls, show=False)
     
     fs = 8
@@ -708,19 +733,20 @@ def main():
     with st.container(horizontal=True, horizontal_alignment="left"):
         pause_sel = st.radio(_(" "), (_("Pause"), _("Run")), key = "itao_pause", horizontal=True, index=0)
         rate_sel = st.number_input(_("Sample rate"), on_change=on_rate, value=1000, placeholder=_("Sample rate"), min_value=100, max_value=3000, step=100) 
-        dist_sel = st.number_input(_("Distance between navel and fossa jugularis"), value=41.0, placeholder=_("Distance between navel and fossa jugularis"), 
-                                   on_change=on_dist, min_value=5.0, max_value=100.0, step=0.1) 
+#        dist_sel = st.number_input(_("Distance between navel and fossa jugularis"), value=41.0, placeholder=_("Distance between navel and fossa jugularis"), 
+#                                   on_change=on_dist, min_value=5.0, max_value=300.0, step=0.1) 
     with st.container(horizontal=True, horizontal_alignment="left"):
 #        alg_sel =  'manikandan2012' # 'neurokit' 
         alg_sel = st.selectbox(label=_("Algorithm"), on_change=on_data, options=algorithms, key="itao_algs", index=7)    
         data_sel = st.selectbox(label=_("Data name"), on_change=on_data, options=ekg_datas, key="itao_datas")
-        sig_sel = st.radio(_("Plot"), ("PQRST", "BLOOD", "SIGNAL"), on_change=on_change, key = "itao_sig", horizontal=True, index=0)
+        sig_sel = st.radio(_("Plot"), ("PQRST", "SIGNAL",), on_change=on_change, key = "itao_sig", horizontal=True, index=0)
+#        sig_sel = st.radio(_("Plot"), ("PQRST", "SIGNAL", "BLOOD"), on_change=on_change, key = "itao_sig", horizontal=True, index=0)
     if sig_sel== "PQRST":
         st.session_state.PQRSTsigidx = 0 
     if sig_sel== "BLOOD":
-        st.session_state.PQRSTsigidx = 1 
+        st.session_state.PQRSTsigidx = 2 
     if sig_sel== "SIGNAL":
-        st.session_state.PQRSTsigidx = 2
+        st.session_state.PQRSTsigidx = 1
     
     def run_algorithm(): 
 #        print("Selected algorithm: {}".format(alg_sel))
@@ -730,7 +756,7 @@ def main():
 #            st.session_state.PQRSTinit = True
             st.session_state.PQRSTdataname = data_sel
             st.session_state.PRQSTrate = rate_sel
-            st.session_state.PQRSTdist = dist_sel
+#            st.session_state.PQRSTdist = dist_sel
 #            st.session_state.PQRSTaveragedist = 0
 
         msg(_("Run") + " " + _("Algorithm") + " " +  alg_sel + ", " + _("Data") + " " + data_sel + ", " + _("Rate") + " " + str(rate_sel) + ", " + sig_sel)
