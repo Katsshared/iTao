@@ -43,6 +43,7 @@ Instead of usual PQRST peaks, the vertical half-lemniscates are used.
 The height of half-lemniscate is equal to the height of usual PQRST peak.
 The values of the PQRST peaks and percentage of peaks are shown.
 It allows to see, that any change of one part of PQRST peak leads to the change of the whole PQRST complex.
+
 SIGNAL
 
 The usual ecg signals are shown.
@@ -112,7 +113,7 @@ PQRST
 Отображаются значения пиков PQRST и проценты пиков.  
 Это позволяет наглядно увидеть, что изменение любой части пика PQRST влечет за собой изменение всего комплекса PQRST.
 
-СИГНАЛ
+SIGNAL
 
 Показаны стандартные сигналы ЭКГ.
 
