@@ -14,7 +14,8 @@ en_books = {
     2:["Rudolf Steiner About Cabbala", f"RudolfSteinerAboutCabbala_en",],
     3:["Rudolf Steiner Three Paths of Initiation", f"RudolfSteinerThreePathsInitiation_en",],
     4:["Rudolf Steiner Emil Bock Gospel of John", f"RudolfSteinerEmilBockJohnGospel_en",],
-    5:["Kat Salomon ITao", f"KatSalomonITao_en",],
+    5:["Rudolf Steiner Emil Bock Revelation of John", f"RudolfSteinerEmilBockRevelationJohn_en",],
+    6:["Kat Salomon ITao", f"KatSalomonITao_en",],
 }
 de_books = {     
     1:["Kat Salomon Der Geist und das Bewusstsein", f"kat-salomon-spirit-and-consciousness_de",],
